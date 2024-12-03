@@ -99,7 +99,7 @@ export default function Component() {
         <Hero />
 
         <div className="flex items-center justify-center gap-2 py-4">
-          <img src="src/y.png" alt="Y Combinator Logo" className="h-4" />
+          <img src="/y.png" alt="Y Combinator Logo" className="h-4" />
           <span className="text-sm text-muted-foreground">Backed by Y Combinator</span>
         </div>
 

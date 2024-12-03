@@ -13,7 +13,7 @@ export default function Nav() {
               <div className="flex flex-row items-center justify-end gap-8">
                 <a
                   href="mailto:founders@asteroid.sh"
-                  className="text-sm text-gray-400 font-mono font-normal tracking-wide hover:text-white transition-colors relative flex items-center gap-2"
+                  className="text-sm text-gray-400 tracking-wide hover:text-white transition-colors relative flex items-center gap-2"
                 >
                   <MailIcon className="h-4 w-4" />
                   Contact
@@ -22,20 +22,20 @@ export default function Nav() {
                   href="https://calendly.com/founders-asteroid/30min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-gray-400 font-mono font-normal tracking-wide hover:text-white transition-colors relative flex items-center gap-2"
+                  className="text-sm text-gray-400 tracking-wide hover:text-white transition-colors relative flex items-center gap-2"
                 >
                   <CalendarIcon className="h-4 w-4" />
                   Demo
                 </a>
 
                 <a href="https://docs.asteroid.sh"
-                  className="text-sm text-gray-400 font-mono font-normal tracking-wide hover:text-white transition-colors relative flex items-center gap-2">
+                  className="text-sm text-gray-400 tracking-wide hover:text-white transition-colors relative flex items-center gap-2">
                   <BookIcon className="h-4 w-4" />
                   Docs
                 </a>
 
                 <a href="https://blog.asteroid.sh/agents"
-                  className="text-sm text-gray-400 font-mono font-normal tracking-wide hover:text-white transition-colors relative flex items-center gap-2">
+                  className="text-sm text-gray-400 tracking-wide hover:text-white transition-colors relative flex items-center gap-2">
                   <LibraryIcon className="h-4 w-4" />
                   Blog
                 </a>
