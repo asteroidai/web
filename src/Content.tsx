@@ -11,6 +11,7 @@ import Nav from "./Nav"
 import Terminal from "./Terminal"
 import { DeploymentSteps } from "./Steps"
 import { KeyFeatures } from "./KeyFeatures"
+import Challenges from "./Challenges"
 
 export default function Component() {
   const [copied, setCopied] = useState(false)
@@ -84,99 +85,40 @@ export default function Component() {
   ]
 
   return (
-    <div className="relative min-h-screen px-8">
+    <div className="relative min-h-screen font-['Source_Serif_4']">
       {/* Stars as background */}
       <div className="fixed inset-0 z-0">
         <Stars />
       </div>
 
-      <Nav />
-
-
       {/* Main content */}
-      <div className="relative z-10 container mx-auto space-y-16 text-gray-100">
+      <div className="relative z-10 container mx-auto px-4 md:px-8 py-12 space-y-24">
+        <div className="space-y-24">
+          <Hero />
 
-        <Hero />
+          <Terminal />
 
-        <div className="flex items-center justify-center gap-2 py-4">
-          <img src="/y.png" alt="Y Combinator Logo" className="h-4" />
-          <span className="text-sm text-muted-foreground">Backed by Y Combinator</span>
+          <DeploymentSteps />
+
+          <KeyFeatures />
+
+          <Challenges />
+
+          <MailingList />
+
         </div>
 
-        <Terminal />
-
-        <DeploymentSteps />
-
-        <KeyFeatures />
-
-        <ChallengeSection />
+        <footer className="flex flex-row items-center justify-between py-8 border-t border-gray-800">
+          <p>&copy; 2024 Entropy Systems, Inc. All rights reserved.</p>
+          <a href="https://github.com/asteroidai/sentinel" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+            <GithubIcon className="h-4 w-4" />
+          </a>
+          <p>
+            <a href="mail:founders@asteroid.sh" className="text-blue-500 hover:text-blue-400 transition-colors">founders@asteroid.sh</a>
+          </p>
+        </footer>
       </div>
     </div>
   )
 }
 
-const ChallengeSection = () => (
-  <div className="space-y-6">
-    <h2 className="text-3xl font-bold">The Challenge</h2>
-    <h3 className="text-xl">How do we ensure reliable and effective AI agent deployment at scale?</h3>
-    <p>
-      We are rapidly approaching a future where AI agents will be integrated into every service and company, with billions of agents operating autonomously. This paradigm shift presents unprecedented challenges that current supervision techniques are ill-equipped to handle.
-    </p>
-
-    <div>
-      <h4 className="text-xl font-semibold mb-2">The Emerging Landscape</h4>
-      <ul className="list-disc pl-5 space-y-2">
-        <li>Agents operating at millions of requests per second will make critical decisions on our behalf</li>
-        <li>AI systems will engage in complex interactions with humans and other agents</li>
-        <li>Highly capable agents will execute arbitrary code and utilise human tools autonomously</li>
-        <li>Self-evolving agents will adapt and improve during runtime</li>
-      </ul>
-    </div>
-
-    <div>
-      <h4 className="text-xl font-semibold mb-2">The Need for Advanced Supervision</h4>
-      <p>
-        As we transition towards clusters of millions of agents performing critical tasks across the internet, traditional methods become unsustainable. It is imperative that those deploying agents in real-world scenarios have robust systems to supervise, evaluate, and ensure the reliability of their AI systems.
-      </p>
-    </div>
-
-    <div>
-      <h4 className="text-xl font-semibold mb-2">Key Challenges We Address</h4>
-      <ul className="list-disc pl-5 space-y-2">
-        <li><strong>Comprehensive Supervision:</strong> Lack of effective solutions for real-time monitoring and control of AI agent actions at scale</li>
-        <li><strong>Advanced Simulation:</strong> Insufficient tools for simulating complex scenarios to test agent behavior before deployment</li>
-        <li><strong>Continuous Evaluation:</strong> Difficulty in implementing ongoing, automated evaluation of deployed agents to maintain performance and safety</li>
-        <li><strong>Regression Testing:</strong> Lack of robust systems for ensuring that agent improvements don't introduce new failure modes</li>
-      </ul>
-    </div>
-
-    <p>
-      Asteroid is building the foundation for a future where billions of AI agents can be deployed reliably, scalably, and safely in any context. Our goal is to ensure that as AI agents become integral to our digital infrastructure, we maintain control, understanding, and trust in their operations through rigorous supervision and evaluation.
-    </p>
-
-    <p className="pt-16">
-      We're currently working with early adopters to build out this technology. If you're an AI lab or an agent company and would like to test it out, please
-      {" "}
-      <a href="https://calendly.com/founders-asteroid/30min" target="_blank" rel="noopener noreferrer" className="text-blue-500">
-        schedule a meeting
-      </a>!
-    </p>
-
-    <div className="pt-16">
-      <MailingList />
-    </div>
-
-    <div className="calendly-inline-widget" data-url="https://calendly.com/founders-asteroid/30min" style={{ minWidth: '320px', height: '700px' }}></div>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-
-    <footer className="pt-16 py-8 text-center text-sm flex flex-row justify-between">
-      <p>&copy; 2024 Entropy Systems, Inc. All rights reserved.</p>
-      <a href="https://github.com/asteroidai/sentinel" target="_blank" rel="noopener noreferrer" className="">
-        <GithubIcon className="h-4 w-4 inline" />
-      </a>
-      <p className="text-center text-xl">
-        <a href="mail:founders@asteroid.sh" className="text-blue-500 text-lg">founders@asteroid.sh</a>
-      </p>
-    </footer>
-  </div>
-)

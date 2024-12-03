@@ -40,7 +40,7 @@ export function MailingList() {
   };
 
   return (
-    <div className='grid gap-4'>
+    <div className='grid gap-4 p-16'>
       <p className='text-sm text-gray-500'>Please enter your email if you're into agents and agentic evals. No spam, we promise.</p>
       <div className='grid grid-cols-4 items-center gap-4'>
         <Input

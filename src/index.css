@@ -3,15 +3,12 @@
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: 'Merriweather';
-    font-style: normal;
-    font-weight: 300 900;
-    font-display: swap;
-    src: url('https://fonts.gstatic.com/s/merriweather/v30/u-4n0qyriQwlOrhSvowK_l521wRZWMf6.woff2') format('woff2');
-  }
+  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,200..900;1,200..900&display=swap');
 
   :root {
+    --font-sans: 'Source Sans Pro', system-ui, sans-serif;
+    --font-serif: 'Source Serif 4', serif;
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
@@ -65,14 +62,26 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-serif;
+  }
+
+  .font-mono,
+  pre,
+  code {
+    font-family: ui-monospace, monospace !important;
+  }
+
+  .font-sans {
+    font-family: var(--font-sans) !important;
+  }
+
+  .font-serif {
+    font-family: var(--font-serif) !important;
   }
 }

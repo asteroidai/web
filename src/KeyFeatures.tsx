@@ -31,9 +31,9 @@ export function KeyFeatures() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   return (
-    <section className="py-24">
+    <section>
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-16 text-white">Why It Matters</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 text-white">Why It Matters</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <motion.div
