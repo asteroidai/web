@@ -29,7 +29,7 @@ export default function Challenges() {
   ]
 
   return (
-    <section ref={containerRef} className="py-24 bg-gradient-to-b from-gray-900 to-black text-white min-h-screen">
+    <section ref={containerRef} className="py-24 text-white min-h-screen">
       <motion.div style={{ opacity, scale }} className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12">The Challenge</h2>
         <Card className="bg-gray-800 border-gray-700 mb-12">
