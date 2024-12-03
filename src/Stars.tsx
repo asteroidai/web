@@ -46,21 +46,32 @@ export default function Stars() {
         events: {
           onClick: {
             enable: true,
-            mode: "push",
+            mode: "grab",
           },
           onHover: {
             enable: true,
-            mode: "repulse",
+            mode: "connect",
+            parallax: {
+              enable: true,
+              force: 6,
+              smooth: 10
+            }
           },
         },
         modes: {
-          push: {
-            quantity: 4,
+          connect: {
+            distance: 80,
+            links: {
+              opacity: 0.2
+            },
+            radius: 60
           },
-          repulse: {
+          grab: {
             distance: 100,
-            duration: 0.4,
-          },
+            links: {
+              opacity: 0.2
+            }
+          }
         },
       },
       particles: {
@@ -119,6 +130,7 @@ export default function Stars() {
         id="tsparticles"
         particlesLoaded={particlesLoaded}
         options={options}
+        className="absolute inset-0"
       />
     );
   }

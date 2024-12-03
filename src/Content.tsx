@@ -5,6 +5,12 @@ import { GithubIcon, CalendarIcon, MailIcon, TerminalIcon, BookIcon, LibraryIcon
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/ui/tabs"
 import { MailingList } from "./components/mailing_list"
 import { Link } from "react-router-dom"
+import Stars from "./Stars"
+import Hero from "./Hero"
+import Nav from "./Nav"
+import Terminal from "./Terminal"
+import { DeploymentSteps } from "./Steps"
+import { KeyFeatures } from "./KeyFeatures"
 
 export default function Component() {
   const [copied, setCopied] = useState(false)
@@ -78,128 +84,33 @@ export default function Component() {
   ]
 
   return (
-    <div className="container mx-auto space-y-16 pt-36 px-8">
-      <Card className="outline-none shadow-none border-none">
-        <CardHeader className="px-0 pb-12">
-          <CardTitle className="">
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-0">
-              <Link to="https://asteroid.sh">
-                <p className="text-4xl font-bold">
-                  Asteroid
-                </p>
-              </Link>
-              <div className="w-full md:w-auto">
-                <div className="flex flex-row items-center gap-8">
-                  <button
-                    onClick={copyEmail}
-                    className="text-sm text-muted-foreground font-mono font-normal tracking-wide hover:text-foreground transition-colors relative flex items-center gap-2"
-                  >
-                    <MailIcon className="h-4 w-4" />
-                    Contact
-                    {copied && (
-                      <span className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-green-300 text-white text-xs py-1 px-2 rounded">
-                        Copied!
-                      </span>
-                    )}
-                  </button>
-                  <a
-                    href="https://calendly.com/founders-asteroid/30min"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-muted-foreground font-mono font-normal tracking-wide hover:text-foreground transition-colors relative flex items-center gap-2"
-                  >
-                    <CalendarIcon className="h-4 w-4" />
-                    Demo
-                  </a>
-
-                  <a href="https://docs.asteroid.sh"
-                    className="text-sm text-muted-foreground font-mono font-normal tracking-wide hover:text-foreground transition-colors relative flex items-center gap-2">
-                    <BookIcon className="h-4 w-4" />
-                    Docs
-                  </a>
-
-                  <a href="https://blog.asteroid.sh/agents"
-                    className="text-sm text-muted-foreground font-mono font-normal tracking-wide hover:text-foreground transition-colors relative flex items-center gap-2">
-                    <LibraryIcon className="h-4 w-4" />
-                    Blog
-                  </a>
-
-
-                  <a href="https://github.com/asteroidai/sentinel" target="_blank" rel="noopener noreferrer" className="inline-block">
-                    <img src="https://img.shields.io/github/stars/asteroidai/sentinel?style=social" alt="GitHub stars" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </CardTitle>
-          <CardDescription className="text-lg">Runtime agent control</CardDescription>
-        </CardHeader>
-        <CardContent className="px-0 pb-0">
-          <p className="px-0">
-            Asteroid enables <b className="text-foreground">supervision</b> and <b className="text-foreground">evaluation</b> of AI agents, unlocking safe, reliable and scalable deployment in any domain. We supervise agents during experimentation and deployment, surfacing critical information to developers, automatically enforcing <b className="text-foreground">supervision policies</b>, and creating domain-specific evaluations.
-            This empowers agent operators to <b className="text-foreground">flag and mitigate unexpected behaviors</b>, uncover failure modes, and significantly reduce development time while enhancing agent reliability. Our system leverages agent traces to automatically generate evaluations, conduct regression tests, and iteratively improve cognitive architectures.
-          </p>
-        </CardContent>
-      </Card>
-
-      {/* <div className="flex items-center justify-center gap-2 py-4">
-        <img src="src/y.png" alt="Y Combinator Logo" className="h-4" />
-        <span className="text-sm text-muted-foreground">Backed by Y Combinator</span>
-      </div> */}
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {features.map((feature, index) => (
-          <Card key={index} className="flex flex-col h-full shadow-none rounded-none">
-            <CardHeader>
-              <CardTitle className="text-lg">{feature.title}</CardTitle>
-              <CardDescription className="text-sm">{feature.description}</CardDescription>
-            </CardHeader>
-            <CardContent className="flex-grow content-end">
-              <ul className=" space-y-2 text-sm font-semibold text-muted-foreground">
-                {feature.tasks.map((task, taskIndex) => (
-                  <li key={taskIndex}>{task}</li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-        ))}
+    <div className="relative min-h-screen px-8">
+      {/* Stars as background */}
+      <div className="fixed inset-0 z-0">
+        <Stars />
       </div>
 
-      <div className="bg-gray-100 p-6 space-y-4">
-        <p className="text-3xl font-bold">Introducing <b className="text-gray-700" >Sentinel</b> </p>
-        <p className="">We have just open sourced our first project, <a href="https://github.com/asteroidai/sentinel" target="_blank" rel="noopener noreferrer" className="text-blue-500 ">Sentinel <GithubIcon className="h-4 w-4 inline" /></a>, the software layer that enables scalable oversight of agentic systems with quantitative safety guarantees, enabling safe and effective agentic AI systems in the wild. </p>
-        <p>
-          To get started, check out the <a href="https://github.com/asteroidai/sentinel" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">GitHub repository</a>.
-        </p>
+      <Nav />
+
+
+      {/* Main content */}
+      <div className="relative z-10 container mx-auto space-y-16 text-gray-100">
+
+        <Hero />
+
+        <div className="flex items-center justify-center gap-2 py-4">
+          <img src="src/y.png" alt="Y Combinator Logo" className="h-4" />
+          <span className="text-sm text-muted-foreground">Backed by Y Combinator</span>
+        </div>
+
+        <Terminal />
+
+        <DeploymentSteps />
+
+        <KeyFeatures />
+
+        <ChallengeSection />
       </div>
-
-      <div className="flex flex-col gap-4">
-        <p className="text-3xl font-bold">Use Cases</p>
-        <Tabs defaultValue="developers" className="w-full rounded-none">
-          <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 rounded-none h-auto">
-            {tabsContent.map((tab) => (
-              <TabsTrigger key={tab.value} value={tab.value} className="rounded-none data-[state=active]:bg-gray-100">
-                {tab.title}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-          {tabsContent.map((tab) => (
-            <TabsContent key={tab.value} value={tab.value} className="bg-gray-100 p-6">
-              <h3 className="text-lg font-semibold mb-2">{tab.title}</h3>
-              <p className="mb-4"><strong>Challenge:</strong> {tab.challenge}</p>
-              <p className="mb-2">Asteroid {tab.value === "researchers" ? "provides researchers with" : "empowers " + tab.value + " to"}:</p>
-              <ul className="list-disc pl-5 mb-4">
-                {tab.benefits.map((benefit, index) => (
-                  <li key={index}>{benefit}</li>
-                ))}
-              </ul>
-            </TabsContent>
-          ))}
-        </Tabs>
-
-      </div>
-
-      <ChallengeSection />
     </div>
   )
 }
@@ -259,7 +170,7 @@ const ChallengeSection = () => (
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
     <footer className="pt-16 py-8 text-center text-sm flex flex-row justify-between">
-      <p>&copy; 2024 Asteroid. All rights reserved.</p>
+      <p>&copy; 2024 Entropy Systems, Inc. All rights reserved.</p>
       <a href="https://github.com/asteroidai/sentinel" target="_blank" rel="noopener noreferrer" className="">
         <GithubIcon className="h-4 w-4 inline" />
       </a>
