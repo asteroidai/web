@@ -7,9 +7,6 @@ export default {
 	],
 	theme: {
 		extend: {
-			fontFamily: {
-				merriweather: ['Merriweather', 'serif'],
-			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',

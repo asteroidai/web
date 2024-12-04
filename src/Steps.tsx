@@ -19,9 +19,9 @@ export function DeploymentSteps() {
   ]
 
   return (
-    <section className="font-sans">
+    <section>
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12 text-white">Deployment Process</h2>
+        <h2 className="text-3xl text-center mb-12 text-white">Deployment Process</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
             <Card key={index} className="relative bg-[#111132]/50 backdrop-blur-sm border-gray-800">

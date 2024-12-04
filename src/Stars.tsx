@@ -84,9 +84,22 @@ export default function Stars() {
           outModes: {
             default: OutMode.out,
           },
-          random: true,
-          speed: 0.5,
-          straight: false,
+          random: false,
+          speed: 1,
+          straight: true,
+          center: {
+            x: 50,
+            y: 50,
+            mode: "percent"
+          },
+          path: {
+            clamp: false,
+            enable: true,
+            delay: {
+              value: 0
+            },
+            generator: "radialPattern"
+          },
         },
         number: {
           density: {

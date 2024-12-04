@@ -32,7 +32,7 @@ const result = await agent.execute({
 })`
 
 export const Terminal = () => (
-  <div className="rounded-lg overflow-hidden border border-gray-700 bg-[#1E1E1E] shadow-lg font-mono">
+  <div className="rounded-lg overflow-hidden border border-gray-700 bg-[#1E1E1E] shadow-lg">
     {/* Terminal Header */}
     <div className="bg-[#2D2D2D] px-4 py-2 flex items-center gap-2">
       <div className="flex gap-2">
@@ -40,7 +40,7 @@ export const Terminal = () => (
         <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
         <div className="w-3 h-3 rounded-full bg-green-500"></div>
       </div>
-      <div className="text-gray-400 text-sm ml-2 font-mono">example.ts</div>
+      <div className="text-gray-400 text-sm ml-2">example.ts</div>
     </div>
 
     {/* Terminal Content */}
@@ -50,15 +50,15 @@ export const Terminal = () => (
       language="typescript"
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className="p-4 overflow-auto font-mono !font-mono text-sm" style={{ ...style, fontFamily: 'ui-monospace, monospace' }}>
+        <pre className="p-4 overflow-auto text-sm" style={style}>
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line })} className="flex">
-              <span className="text-gray-500 mr-4 select-none w-8 text-right font-mono">
+              <span className="text-gray-500 mr-4 select-none w-8 text-right">
                 {i + 1}
               </span>
-              <span className="font-mono">
+              <span>
                 {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token })} className="font-mono" />
+                  <span key={key} {...getTokenProps({ token })} />
                 ))}
               </span>
             </div>

@@ -31,7 +31,7 @@ export default function Challenges() {
   return (
     <section ref={containerRef} className="py-24 text-white min-h-screen">
       <motion.div style={{ opacity, scale }} className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">The Challenge</h2>
+        <h2 className="text-4xl text-center mb-12">The Challenge</h2>
         <Card className="bg-gray-800 border-gray-700 mb-12">
           <CardHeader>
             <CardTitle className="text-2xl text-white">How do we ensure reliable and effective AI agent deployment at scale?</CardTitle>
@@ -41,7 +41,7 @@ export default function Challenges() {
           </CardContent>
         </Card>
 
-        <h3 className="text-2xl font-semibold mb-6">The Emerging Landscape</h3>
+        <h3 className="text-2xl mb-6">The Emerging Landscape</h3>
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           {landscape.map((item, index) => (
             <Card key={index} className="bg-gray-800 border-gray-700">
@@ -52,14 +52,14 @@ export default function Challenges() {
           ))}
         </div>
 
-        <h3 className="text-2xl font-semibold mb-6">The Need for Advanced Supervision</h3>
+        <h3 className="text-2xl mb-6">The Need for Advanced Supervision</h3>
         <Card className="bg-gray-800 border-gray-700 mb-12">
           <CardContent className="p-6 text-gray-300">
             <p>As we transition towards clusters of millions of agents performing critical tasks across the internet, traditional methods become unsustainable. It is imperative that those deploying agents in real-world scenarios have robust systems to supervise, evaluate, and ensure the reliability of their AI systems.</p>
           </CardContent>
         </Card>
 
-        <h3 className="text-2xl font-semibold mb-6">Key Challenges We Address</h3>
+        <h3 className="text-2xl mb-6">Key Challenges We Address</h3>
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           {challenges.map((challenge, index) => (
             <Card key={index} className="bg-gray-800 border-gray-700">
