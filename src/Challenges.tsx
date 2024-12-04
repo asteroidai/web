@@ -32,7 +32,7 @@ export default function Challenges() {
     <section ref={containerRef} className="py-24 text-white min-h-screen">
       <motion.div style={{ opacity, scale }} className="container mx-auto px-4">
         <h2 className="text-4xl text-center mb-12">The Challenge</h2>
-        <Card className="bg-gray-800 border-gray-700 mb-12">
+        <Card className="bg-[#111132]/50 backdrop-blur-sm border-gray-800 mb-12">
           <CardHeader>
             <CardTitle className="text-2xl text-white">How do we ensure reliable and effective AI agent deployment at scale?</CardTitle>
           </CardHeader>
@@ -44,7 +44,7 @@ export default function Challenges() {
         <h3 className="text-2xl mb-6">The Emerging Landscape</h3>
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           {landscape.map((item, index) => (
-            <Card key={index} className="bg-gray-800 border-gray-700">
+            <Card key={index} className="bg-[#111132]/50 backdrop-blur-sm border-gray-800">
               <CardContent className="p-4">
                 <p className="text-gray-300">{item}</p>
               </CardContent>
@@ -53,16 +53,16 @@ export default function Challenges() {
         </div>
 
         <h3 className="text-2xl mb-6">The Need for Advanced Supervision</h3>
-        <Card className="bg-gray-800 border-gray-700 mb-12">
+        <Card className="bg-[#111132]/50 backdrop-blur-sm border-gray-800 mb-12">
           <CardContent className="p-6 text-gray-300">
             <p>As we transition towards clusters of millions of agents performing critical tasks across the internet, traditional methods become unsustainable. It is imperative that those deploying agents in real-world scenarios have robust systems to supervise, evaluate, and ensure the reliability of their AI systems.</p>
           </CardContent>
         </Card>
 
         <h3 className="text-2xl mb-6">Key Challenges We Address</h3>
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
           {challenges.map((challenge, index) => (
-            <Card key={index} className="bg-gray-800 border-gray-700">
+            <Card key={index} className="bg-[#111132]/50 backdrop-blur-sm border-gray-800">
               <CardHeader>
                 <CardTitle className="text-xl text-white">{challenge}</CardTitle>
               </CardHeader>
@@ -75,13 +75,20 @@ export default function Challenges() {
           ))}
         </div>
 
-        <Card className="bg-gray-800 border-gray-700">
-          <CardContent className="p-6">
-            <p className="text-gray-300">
-              Asteroid is building the foundation for a future where billions of AI agents can be deployed reliably, scalably, and safely in any context. Our goal is to ensure that as AI agents become integral to our digital infrastructure, we maintain control, understanding, and trust in their operations through rigorous supervision and evaluation.
-            </p>
-          </CardContent>
-        </Card>
+        <div className="text-center space-y-12 py-36 rounded-3xl backdrop-blur-sm">
+          <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
+            Asteroid is building the foundation for an agent-based future.
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto px-6">
+            As billions of AI agents become woven into the fabric of our digital world,
+            the need for robust supervision isn't just a technical challenge—it's an
+            imperative for humanity's safe transition into an AI-native future.
+          </p>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto px-6 font-semibold">
+            Asteroid is laying the groundwork for this future, ensuring that every
+            AI agent deployment is reliable, controllable, and aligned with human values.
+          </p>
+        </div>
       </motion.div>
     </section>
   )
