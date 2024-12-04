@@ -101,7 +101,6 @@ export default function Component() {
 
           <Step123 />
 
-          <Terminal />
 
           <DeploymentSteps />
 

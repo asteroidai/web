@@ -33,7 +33,7 @@ export function KeyFeatures() {
   return (
     <section>
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl text-center mb-12 text-white">Why It Matters</h2>
+        <h2 className="text-3xl text-center mb-12 text-white font-bold">What it means for your agent</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <motion.div
@@ -55,7 +55,7 @@ export function KeyFeatures() {
                     />
                   </div>
                   <CardTitle className="text-xl mb-2 text-white">{feature.title}</CardTitle>
-                  <CardDescription className="text-gray-400">{feature.description}</CardDescription>
+                  <CardDescription className="text-gray-400 font-normal">{feature.description}</CardDescription>
                 </CardHeader>
               </Card>
             </motion.div>
