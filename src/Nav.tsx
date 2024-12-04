@@ -41,6 +41,19 @@ const fadeInVariants = {
   })
 }
 
+const textRevealVariants = {
+  hidden: { width: 0, opacity: 0, marginLeft: 0, overflow: 'hidden' },
+  visible: {
+    width: 'auto',
+    opacity: 1,
+    marginLeft: 8,
+    transition: {
+      duration: 0.3,
+      ease: 'easeOut'
+    }
+  }
+}
+
 const navItems = [
   { name: "Contact", href: "mailto:founders@asteroid.sh", icon: MailIcon },
   { name: "Demo", href: "https://calendly.com/founders-asteroid/30min", icon: CalendarIcon },
@@ -78,8 +91,15 @@ export default function Nav() {
                       transition={{ duration: 0.2 }}
                       className="flex items-center"
                     >
-                      <item.icon className="mr-2 h-4 w-4" />
-                      {item.name}
+                      <item.icon className="h-4 w-4" />
+                      <motion.span
+                        initial="hidden"
+                        whileHover="visible"
+                        variants={textRevealVariants}
+                        className="overflow-hidden whitespace-nowrap"
+                      >
+                        {item.name}
+                      </motion.span>
                     </motion.div>
                   </NavLink>
                 </NavigationMenuItem>
@@ -123,8 +143,15 @@ export default function Nav() {
                   animate="animate"
                   custom={index}
                 >
-                  <item.icon className="mr-2 h-4 w-4" />
-                  {item.name}
+                  <item.icon className="h-4 w-4" />
+                  <motion.span
+                    initial="hidden"
+                    whileHover="visible"
+                    variants={textRevealVariants}
+                    className="overflow-hidden whitespace-nowrap"
+                  >
+                    {item.name}
+                  </motion.span>
                 </NavLink>
               ))}
               <NavLink

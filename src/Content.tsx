@@ -12,6 +12,8 @@ import Terminal from "./Terminal"
 import { DeploymentSteps } from "./Steps"
 import { KeyFeatures } from "./KeyFeatures"
 import Challenges from "./Challenges"
+import Step123 from "./Step123"
+import Footer from "./Footer"
 
 export default function Component() {
   const [copied, setCopied] = useState(false)
@@ -92,9 +94,12 @@ export default function Component() {
       </div>
 
       {/* Main content */}
-      <div className="relative z-10 container mx-auto px-4 md:px-8 py-12 space-y-24">
-        <div className="space-y-24">
-          <Hero />
+      <div className="relative z-10 container mx-auto px-4 md:px-8">
+        <Nav />
+        <Hero />
+        <div className="space-y-96">
+
+          <Step123 />
 
           <Terminal />
 
@@ -104,19 +109,8 @@ export default function Component() {
 
           <Challenges />
 
-          <MailingList />
-
         </div>
 
-        <footer className="flex flex-row items-center justify-between py-8 border-t border-gray-800">
-          <p>&copy; 2024 Entropy Systems, Inc. All rights reserved.</p>
-          <a href="https://github.com/asteroidai/sentinel" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-            <GithubIcon className="h-4 w-4" />
-          </a>
-          <p>
-            <a href="mail:founders@asteroid.sh" className="text-blue-500 hover:text-blue-400 transition-colors">founders@asteroid.sh</a>
-          </p>
-        </footer>
       </div>
     </div>
   )

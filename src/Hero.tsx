@@ -1,7 +1,10 @@
 import * as React from 'react'
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from 'lucide-react'
+import { cn } from "@/lib/utils"
 import Nav from './Nav'
+import { InstallTabs } from './Install'
+import Step123 from './Step123'
 
 export default function Hero() {
   return (
@@ -9,7 +12,7 @@ export default function Hero() {
       <Nav />
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl mb-6 tracking-tight">
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl mb-6 tracking-tight font-bold">
           Runtime Control for AI Agents
         </h1>
         <p className="text-lg sm:text-xl lg:text-2xl mb-8 text-gray-300">
@@ -19,27 +22,29 @@ export default function Hero() {
           Runtime Control for AI Agents enables you to dynamically oversee, guide, and correct your agents in real-time.
           As agents prove reliable, the platform adapts, progressively automating decisions while ensuring safety and alignment with your goals.
         </p>
-        <Button size="lg" className="bg-white text-black hover:bg-gray-200 transition-colors">
-          Try it<ArrowRight className="ml-2" size={20} />
+        <Button
+          size="lg"
+          className={cn(
+            "relative group",
+            "before:absolute before:inset-0 before:rounded-md before:bg-gradient-to-r before:from-indigo-500 before:to-purple-500",
+            "before:opacity-100",
+            "text-white",
+            "transition-all duration-300",
+            "hover:scale-105 active:scale-95",
+            "shadow-lg shadow-indigo-500/25",
+            "overflow-hidden"
+          )}
+        >
+          <span className="relative z-10 flex items-center">
+            Try it
+            <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
+          </span>
         </Button>
       </div>
 
-      {/* <div className="flex items-center justify-center gap-2 py-4 mt-32">
-        <img src="/y.png" alt="Y Combinator Logo" className="h-4" />
-        <span className="text-sm text-muted-foreground">Backed by Y Combinator</span>
-      </div> */}
+      <InstallTabs />
 
-      {/* Integration steps */}
-      <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-4 text-sm sm:text-base">
-        {['Wrap model client', 'Run the agent', 'Intervene in UI'].map((step, index) => (
-          <div key={index} className="flex items-center">
-            <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center mr-2">
-              {index + 1}
-            </div>
-            <span>{step}</span>
-          </div>
-        ))}
-      </div>
+
     </div>
   )
 }
