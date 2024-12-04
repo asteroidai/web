@@ -8,7 +8,7 @@ import Step123 from './Step123'
 
 export default function Hero() {
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden text-white/60">
+    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden text-white/70">
       <Nav />
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
@@ -31,7 +31,7 @@ export default function Hero() {
             "overflow-hidden"
           )}
         >
-          <span className="relative z-10 flex items-center">
+          <span className="relative z-10 flex items-center font-bold tracking-wide">
             Try it
             <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
           </span>
