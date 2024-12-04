@@ -24,10 +24,10 @@ export default function Hero() {
         </Button>
       </div>
 
-      <div className="flex items-center justify-center gap-2 py-4 mt-32">
+      {/* <div className="flex items-center justify-center gap-2 py-4 mt-32">
         <img src="/y.png" alt="Y Combinator Logo" className="h-4" />
         <span className="text-sm text-muted-foreground">Backed by Y Combinator</span>
-      </div>
+      </div> */}
 
       {/* Integration steps */}
       <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-4 text-sm sm:text-base">
