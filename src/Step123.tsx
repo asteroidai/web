@@ -48,35 +48,35 @@ export default function Step123() {
           >
             3
           </button>
-          <p className="text-sm text-gray-400 mt-2">Deploy</p>
+          <p className="text-sm text-gray-400 mt-2">Deploy & Monitor</p>
         </div>
       </div>
 
       <div className="space-y-16">
         {/* Step 1 */}
         <div ref={terminal1Ref} className="flex flex-col md:flex-row md:items-center gap-8">
-          <div className="md:w-1/5 flex flex-col items-center text-center mb-4 md:mb-0">
+          <div className="md:w-1/5 flex flex-col items-center justify-center text-center mb-4 md:mb-0">
             <div className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg shadow-indigo-500/25 mb-4">
               1
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">Wrap your LLM client</h3>
             <p className="text-sm text-gray-400">Add a few lines of code at the start of your agent execution</p>
           </div>
-          <div className="w-full md:w-4/5">
-            <Terminal />
+          <div className="md:w-4/5 max-w-[600px]">
+            <Terminal code={step1Code} />
           </div>
         </div>
 
         {/* Step 2 */}
         <div ref={terminal2Ref} className="flex flex-col md:flex-row md:items-center gap-8">
-          <div className="md:w-1/5 flex flex-col items-center text-center mb-4 md:mb-0">
+          <div className="md:w-1/5 flex flex-col items-center justify-center text-center mb-4 md:mb-0">
             <div className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg shadow-indigo-500/25 mb-4">
               2
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">Attach Supervisors</h3>
             <p className="text-sm text-gray-400">Add safety checks to protect sensitive operations</p>
           </div>
-          <div className="w-full md:w-4/5">
+          <div className="md:w-4/5 max-w-[600px]">
             <Terminal code={step2Code} />
           </div>
         </div>
@@ -90,7 +90,7 @@ export default function Step123() {
             <h3 className="text-lg font-semibold text-white mb-2">Deploy & Monitor</h3>
             <p className="text-sm text-gray-400">Run your agent with confidence and monitor its actions in real-time</p>
           </div>
-          <div className="w-full md:w-4/5">
+          <div className="w-full md:w-4/5 max-w-[600px]">
             <div className="relative w-full aspect-video rounded-lg overflow-hidden">
               <iframe
                 className="absolute top-0 left-0 w-full h-full"
@@ -110,21 +110,16 @@ export default function Step123() {
 }
 
 const step2Code = `
-# Simplified example of supervision on a database_modify tool call
-from asteroid_sdk.supervision import human_supervisor
-
-# Define arbitrary custom supervisors to protect the world from your agent
-def my_supervisor():
-    """Human supervisor for reviewing actions."""
-    def human_supervisor(action, context):
-        # If the text contains "delete" or "update"
-        if "DELETE" in action.content or "UPDATE" in action.content:
-            return REJECT
-        return APPROVE
-    return human_supervisor
-
 # Wrap functions that the agent can call with custom or built-in supervisors
 @supervise(human_supervisor())
 def database_modify(query: str):
     """Modify the database."""
+`
+const step1Code = `
+
+# Initialize Sentinel
+run_id = sentinel_init()
+
+# Wrap your favourite LLM client
+client = sentinel_openai_client(OpenAI(), run_id)
 `

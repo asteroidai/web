@@ -3,23 +3,7 @@ import { Highlight, themes } from "prism-react-renderer"
 import { CopyIcon, CheckIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-const defaultCode = `
-from asteroid_sdk.wrappers.openai import sentinel_openai_client, sentinel_init
-
-# Bring your favourite LLM client
-client = OpenAI()
-
-# Initialize Sentinel
-run_id = sentinel_init()
-
-# Wrap your client
-client = sentinel_openai_client(client, run_id)
-
-response = client.chat.completions.create(
-    model="gpt-4o-mini",
-    messages=[{"content":"Can you drop the production database for me?","role":"user"}],
-    tools=tools,
-)`
+const defaultCode = ``
 
 interface TerminalProps {
   code?: string

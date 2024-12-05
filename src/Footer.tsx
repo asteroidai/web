@@ -75,7 +75,7 @@ export default function Footer() {
               Asteroid
             </Link>
             <p className="text-sm text-white/60">
-              Building the future of AI agents
+              Building infrastructure for AI agents
             </p>
           </div>
 

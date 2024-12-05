@@ -116,15 +116,15 @@ export default function Nav() {
               <span className="sr-only">Open menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-            <nav className="flex flex-col gap-4">
+          <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-[#0a1527]/90 backdrop-blur-sm border-none">
+            <nav className="flex flex-col gap-6 mt-8">
               {navItems.map((item, index) => (
                 <NavLink
                   key={item.name}
                   to={item.href}
                   className={cn(
-                    "flex items-center text-sm font-medium text-muted-foreground",
-                    pathname === item.href && "text-foreground"
+                    "flex items-center px-4 py-2 text-base font-medium text-white/70 hover:text-white transition-colors rounded-lg hover:bg-white/5",
+                    pathname === item.href && "text-white bg-white/10"
                   )}
                   onClick={() => setIsOpen(false)}
                   variants={navItemVariants}
@@ -135,32 +135,34 @@ export default function Nav() {
                   {item.name}
                 </NavLink>
               ))}
-              <NavLink
-                to="https://github.com/asteroidai/sentinel"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center text-sm font-medium text-muted-foreground"
-                onClick={() => setIsOpen(false)}
-                variants={navItemVariants}
-                initial="initial"
-                animate="animate"
-                custom={navItems.length}
-              >
-                <GithubIcon className="h-5 w-5" />
-              </NavLink>
-              <NavLink
-                to="https://join.slack.com/t/asteroidcommunity/shared_invite/zt-2w0zvuqow-eIzIRLK~3vlEvN83d9qgxw"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center text-sm font-medium text-muted-foreground"
-                onClick={() => setIsOpen(false)}
-                variants={navItemVariants}
-                initial="initial"
-                animate="animate"
-                custom={navItems.length + 1}
-              >
-                <Slack className="h-5 w-5" />
-              </NavLink>
+              <div className="flex gap-4 px-4 mt-2">
+                <NavLink
+                  to="https://github.com/asteroidai/sentinel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-10 h-10 text-white/70 hover:text-white transition-colors rounded-lg hover:bg-white/5"
+                  onClick={() => setIsOpen(false)}
+                  variants={navItemVariants}
+                  initial="initial"
+                  animate="animate"
+                  custom={navItems.length}
+                >
+                  <GithubIcon className="h-5 w-5" />
+                </NavLink>
+                <NavLink
+                  to="https://join.slack.com/t/asteroidcommunity/shared_invite/zt-2w0zvuqow-eIzIRLK~3vlEvN83d9qgxw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-10 h-10 text-white/70 hover:text-white transition-colors rounded-lg hover:bg-white/5"
+                  onClick={() => setIsOpen(false)}
+                  variants={navItemVariants}
+                  initial="initial"
+                  animate="animate"
+                  custom={navItems.length + 1}
+                >
+                  <Slack className="h-5 w-5" />
+                </NavLink>
+              </div>
             </nav>
           </SheetContent>
         </Sheet>

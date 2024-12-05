@@ -103,7 +103,7 @@ export default function Component() {
         <Nav />
         <Hero />
 
-        <div className="space-y-64">
+        <div className="space-y-32 md:space-y-48 lg:space-y-64">
           <Step123 />
 
           <DeploymentSteps />
