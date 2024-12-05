@@ -94,7 +94,7 @@ export default function Component() {
         <Stars />
       </div>
       {/* Install Tabs */}
-      <div className="fixed bottom-8 right-8 z-50">
+      <div className="fixed bottom-8 right-8 z-50 hidden xl:block">
         <InstallTabs />
       </div>
 

@@ -93,15 +93,15 @@ export const Terminal: React.FC<TerminalProps> = ({
           language={language}
         >
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre className="px-6 py-4 overflow-auto text-sm" style={style}>
+            <pre className="px-4 py-4 overflow-auto text-sm" style={style}>
               {tokens.map((line, i) => (
                 <div key={i} {...getLineProps({ line })} className="flex">
                   {lineNumbers && (
-                    <span className="text-gray-500 mr-4 select-none w-8 text-right">
+                    <span className="text-gray-500 mr-4 select-none w-6 text-right flex-shrink-0">
                       {i + 1}
                     </span>
                   )}
-                  <span>
+                  <span className="flex-1">
                     {line.map((token, key) => (
                       <span key={key} {...getTokenProps({ token })} />
                     ))}

@@ -15,8 +15,8 @@ export default function Step123() {
     <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 pt-12">
       <h2 className="text-3xl font-bold text-center mb-8 text-white font-['Source_Serif_4']">Integration Steps</h2>
 
-      {/* Horizontal Steps */}
-      <div className="flex justify-center items-center gap-4">
+      {/* Horizontal Steps - Updated container */}
+      <div className="flex justify-center items-center gap-4 mx-auto">
         <div className="flex flex-col items-center">
           <button
             onClick={() => scrollToTerminal(terminal1Ref)}
@@ -54,51 +54,57 @@ export default function Step123() {
 
       <div className="space-y-16">
         {/* Step 1 */}
-        <div ref={terminal1Ref} className="flex items-stretch gap-8">
-          <div className="w-1/5 flex flex-col items-center justify-center text-center">
+        <div ref={terminal1Ref} className="flex flex-col md:flex-row md:items-center gap-8">
+          <div className="md:w-1/5 flex flex-col items-center text-center mb-4 md:mb-0">
             <div className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg shadow-indigo-500/25 mb-4">
               1
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">Wrap your LLM client</h3>
             <p className="text-sm text-gray-400">Add a few lines of code at the start of your agent execution</p>
           </div>
-          <div className="w-4/5">
+          <div className="w-full md:w-4/5">
             <Terminal />
           </div>
         </div>
 
         {/* Step 2 */}
-        <div ref={terminal2Ref} className="flex items-stretch gap-8">
-          <div className="w-1/5 flex flex-col items-center justify-center text-center">
+        <div ref={terminal2Ref} className="flex flex-col md:flex-row md:items-center gap-8">
+          <div className="md:w-1/5 flex flex-col items-center text-center mb-4 md:mb-0">
             <div className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg shadow-indigo-500/25 mb-4">
               2
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">Attach Supervisors</h3>
             <p className="text-sm text-gray-400">Add safety checks to protect sensitive operations</p>
           </div>
-          <div className="w-4/5">
+          <div className="w-full md:w-4/5">
             <Terminal code={step2Code} />
           </div>
         </div>
 
         {/* Step 3 */}
-        <div ref={terminal3Ref} className="flex items-stretch gap-8">
-          <div className="w-1/5 flex flex-col items-center justify-center text-center">
+        <div ref={terminal3Ref} className="flex flex-col md:flex-row md:items-center gap-8">
+          <div className="md:w-1/5 flex flex-col items-center text-center mb-4 md:mb-0">
             <div className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg shadow-indigo-500/25 mb-4">
               3
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">Deploy & Monitor</h3>
             <p className="text-sm text-gray-400">Run your agent with confidence and monitor its actions in real-time</p>
           </div>
-          <div className="w-4/5">
-            {/* Empty div to maintain layout - could add a terminal or other content later */}
+          <div className="w-full md:w-4/5">
+            <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+              <iframe
+                className="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/pOfnYkdLk18?si=d7EVA11f28Xr-vGr"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
           </div>
         </div>
       </div>
-
-      <p className="text-center mt-8 text-gray-400">
-        Complete integration in less than 2 minutes
-      </p>
     </div>
   )
 }

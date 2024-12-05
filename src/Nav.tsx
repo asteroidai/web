@@ -1,6 +1,6 @@
 import * as React from "react"
 import { motion } from "framer-motion"
-import { MailIcon, CalendarIcon, BookIcon, LibraryIcon, GithubIcon, MenuIcon } from 'lucide-react'
+import { MenuIcon, Slack, GithubIcon } from 'lucide-react'
 import { cn } from "@/lib/utils"
 import { Link, useLocation } from "react-router-dom"
 import {
@@ -41,24 +41,10 @@ const fadeInVariants = {
   })
 }
 
-const textRevealVariants = {
-  hidden: { width: 0, opacity: 0, marginLeft: 0, overflow: 'hidden' },
-  visible: {
-    width: 'auto',
-    opacity: 1,
-    marginLeft: 8,
-    transition: {
-      duration: 0.3,
-      ease: 'easeOut'
-    }
-  }
-}
-
 const navItems = [
-  { name: "Contact", href: "mailto:founders@asteroid.sh", icon: MailIcon },
-  { name: "Demo", href: "https://calendly.com/founders-asteroid/30min", icon: CalendarIcon },
-  { name: "Docs", href: "https://docs.asteroid.sh", icon: BookIcon },
-  { name: "Blog", href: "https://blog.asteroid.sh/agents", icon: LibraryIcon },
+  { name: "Demo", href: "https://calendly.com/founders-asteroid/30min" },
+  { name: "Docs", href: "https://docs.asteroid.sh" },
+  { name: "Blog", href: "https://blog.asteroid.sh/agents" },
 ]
 
 export default function Nav() {
@@ -91,15 +77,7 @@ export default function Nav() {
                       transition={{ duration: 0.2 }}
                       className="flex items-center"
                     >
-                      <item.icon className="h-4 w-4" />
-                      <motion.span
-                        initial="hidden"
-                        whileHover="visible"
-                        variants={textRevealVariants}
-                        className="overflow-hidden whitespace-nowrap"
-                      >
-                        {item.name}
-                      </motion.span>
+                      {item.name}
                     </motion.div>
                   </NavLink>
                 </NavigationMenuItem>
@@ -114,8 +92,19 @@ export default function Nav() {
           >
             <Link to="https://github.com/asteroidai/sentinel" target="_blank" rel="noopener noreferrer">
               <Button variant="ghost" size="icon" className="bg-transparent text-white hover:text-white/80 hover:bg-transparent">
-                <GithubIcon className="h-4 w-4" />
-                <span className="sr-only">GitHub</span>
+                <GithubIcon className="h-5 w-5" />
+              </Button>
+            </Link>
+          </motion.div>
+          <motion.div
+            initial="initial"
+            animate="animate"
+            whileHover="hover"
+            variants={navItemVariants}
+          >
+            <Link to="https://join.slack.com/t/asteroidcommunity/shared_invite/zt-2w0zvuqow-eIzIRLK~3vlEvN83d9qgxw" target="_blank" rel="noopener noreferrer">
+              <Button variant="ghost" size="icon" className="bg-transparent text-white hover:text-white/80 hover:bg-transparent">
+                <Slack className="h-5 w-5" />
               </Button>
             </Link>
           </motion.div>
@@ -143,15 +132,7 @@ export default function Nav() {
                   animate="animate"
                   custom={index}
                 >
-                  <item.icon className="h-4 w-4" />
-                  <motion.span
-                    initial="hidden"
-                    whileHover="visible"
-                    variants={textRevealVariants}
-                    className="overflow-hidden whitespace-nowrap"
-                  >
-                    {item.name}
-                  </motion.span>
+                  {item.name}
                 </NavLink>
               ))}
               <NavLink
@@ -165,8 +146,20 @@ export default function Nav() {
                 animate="animate"
                 custom={navItems.length}
               >
-                <GithubIcon className="mr-2 h-4 w-4" />
-                GitHub
+                <GithubIcon className="h-5 w-5" />
+              </NavLink>
+              <NavLink
+                to="https://join.slack.com/t/asteroidcommunity/shared_invite/zt-2w0zvuqow-eIzIRLK~3vlEvN83d9qgxw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-sm font-medium text-muted-foreground"
+                onClick={() => setIsOpen(false)}
+                variants={navItemVariants}
+                initial="initial"
+                animate="animate"
+                custom={navItems.length + 1}
+              >
+                <Slack className="h-5 w-5" />
               </NavLink>
             </nav>
           </SheetContent>
