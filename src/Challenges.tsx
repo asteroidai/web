@@ -29,9 +29,9 @@ export default function Challenges() {
   ]
 
   return (
-    <section ref={containerRef} className="py-24 text-white min-h-screen">
+    <section ref={containerRef} className="text-white min-h-screen">
       <motion.div style={{ opacity, scale }} className="container mx-auto px-4">
-        <h2 className="text-4xl text-center mb-12">The Challenge</h2>
+        <h2 className="text-4xl text-center mb-12 text-white font-bold">The Challenge</h2>
         <Card className="bg-[#111132]/50 backdrop-blur-sm border-gray-800 mb-12">
           <CardHeader>
             <CardTitle className="text-2xl text-white">How do we ensure reliable and effective AI agent deployment at scale?</CardTitle>
@@ -75,7 +75,7 @@ export default function Challenges() {
           ))}
         </div>
 
-        <div className="text-center space-y-12 py-36 rounded-3xl backdrop-blur-sm">
+        <div className="text-center space-y-16 py-48 rounded-3xl backdrop-blur-sm">
           <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
             Asteroid is building the foundation for an agent-based future.
           </h2>

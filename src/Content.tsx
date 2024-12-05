@@ -14,6 +14,7 @@ import { KeyFeatures } from "./KeyFeatures"
 import Challenges from "./Challenges"
 import Step123 from "./Step123"
 import Footer from "./Footer"
+import { InstallTabs } from "./Install"
 
 export default function Component() {
   const [copied, setCopied] = useState(false)
@@ -87,20 +88,23 @@ export default function Component() {
   ]
 
   return (
-    <div className="relative min-h-screen font-['Source_Serif_4']">
+    <div className="relative min-h-screen">
       {/* Stars as background */}
       <div className="fixed inset-0 z-0">
         <Stars />
+      </div>
+      {/* Install Tabs */}
+      <div className="fixed bottom-8 right-8 z-50">
+        <InstallTabs />
       </div>
 
       {/* Main content */}
       <div className="relative z-10 container mx-auto px-4 md:px-8">
         <Nav />
         <Hero />
-        <div className="space-y-96">
 
+        <div className="space-y-64">
           <Step123 />
-
 
           <DeploymentSteps />
 

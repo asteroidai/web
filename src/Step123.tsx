@@ -3,8 +3,8 @@ import { ArrowDown } from 'lucide-react'
 import Terminal from './Terminal'
 export default function Step123() {
   return (
-    <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
-      <h2 className="text-3xl font-bold text-center mb-8 text-white">Integration Steps</h2>
+    <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 pt-12">
+      <h2 className="text-3xl font-bold text-center mb-8 text-white font-['Source_Serif_4']">Integration Steps</h2>
       <div className="space-y-8">
         <div className="flex flex-col items-center space-y-4">
           <div className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full w-10 h-10 flex items-center justify-center mb-4 shadow-lg shadow-indigo-500/25">

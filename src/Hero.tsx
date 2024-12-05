@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ChevronDown } from 'lucide-react'
 import { cn } from "@/lib/utils"
 import Nav from './Nav'
 import { InstallTabs } from './Install'
@@ -12,11 +12,14 @@ export default function Hero() {
       <Nav />
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl mb-6 tracking-tight font-bold">
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl mb-6 tracking-tight font-bold font-['Source_Serif_4']">
           Make your AI agent production ready.
         </h1>
         <p className="text-lg sm:text-xl lg:text-2xl mb-8 text-gray-300">
           Guide, correct, and progressively improve AI agent decision making.
+        </p>
+        <p className="text-base sm:text-lg lg:text-xl mb-12 text-gray-400 max-w-3xl mx-auto">
+          Asteroid’s SDK and web interface help dynamically oversee, guide, and correct your agents in real-time
         </p>
         <Button
           size="lg"
@@ -36,13 +39,12 @@ export default function Hero() {
             <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
           </span>
         </Button>
-        <p className="text-base sm:text-lg lg:text-xl mb-12 text-gray-400 max-w-3xl mx-auto">
-          Asteroid is a platform for making AI agents production ready. From prototype to wide-scale deployment, we help you observe, evaluate, and intervene in your agents execution cycle.
-        </p>
       </div>
 
-      <InstallTabs />
-
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 w-full flex justify-center">
+        <ChevronDown size={32} className="text-white/50 hover:text-white/70 transition-colors cursor-pointer animate-bounce" />
+      </div>
 
     </div>
   )
