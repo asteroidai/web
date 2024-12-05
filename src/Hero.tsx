@@ -13,7 +13,7 @@ export default function Hero() {
       <Nav />
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl mb-6 tracking-tight font-bold font-['Source_Serif_4'] hover:shadow-indigo-500/25">
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl mb-6 tracking-tight font-bold font-['Source_Serif_4'] text-white">
           Make your AI agent production ready.
         </h1>
         <p className="text-lg sm:text-xl lg:text-2xl mb-8 text-gray-300">
@@ -38,7 +38,7 @@ export default function Hero() {
               )}
             >
               <span className="relative z-10 flex items-center font-bold tracking-wide">
-                Use Asteroid
+                Get Access
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
               </span>
             </Button>

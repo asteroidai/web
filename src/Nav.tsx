@@ -54,9 +54,9 @@ export default function Nav() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-3 bg-non backdrop-blur-sm">
       <div className="container mx-auto flex items-center justify-between">
-        <NavLink to="/" className="text-2xl font-bold text-white font-['Source_Serif_4']" variants={fadeInVariants} initial="initial" animate="animate" custom={0}>
+        <p className="text-2xl font-bold text-white font-['Source_Serif_4']">
           Asteroid
-        </NavLink>
+        </p>
         <div className="hidden md:flex items-center space-x-4">
           <NavigationMenu>
             <NavigationMenuList>
