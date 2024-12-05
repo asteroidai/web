@@ -2,6 +2,10 @@ import * as React from "react"
 import { useRef, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Link } from "react-router-dom"
+import { Button } from "./components/ui/button"
+import { ArrowRight } from "lucide-react"
+import { cn } from "./utils"
 // import { Badge } from "@/components/ui/badge"
 
 export default function Challenges() {
@@ -15,81 +19,64 @@ export default function Challenges() {
   const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.8, 1, 1, 0.8])
 
   const challenges = [
-    "Comprehensive Supervision",
-    "Advanced Simulation",
-    "Continuous Evaluation",
-    "Regression Testing"
-  ]
-
-  const landscape = [
-    "Agents operating at millions of requests per second",
-    "Complex interactions with humans and other agents",
-    "Execution of arbitrary code and human tools",
-    "Self-evolving and adapting during runtime"
+    {
+      title: "Scale",
+      description: "Agents operating at millions of requests per second",
+      icon: "⚡"
+    },
+    {
+      title: "Complexity",
+      description: "Complex interactions with humans and other agents",
+      icon: "🔄"
+    },
+    {
+      title: "Integration",
+      description: "Execution of arbitrary code and human tools",
+      icon: "🔧"
+    },
+    {
+      title: "Evolution",
+      description: "Self-evolving and adapting during runtime",
+      icon: "🔄"
+    }
   ]
 
   return (
-    <section ref={containerRef} className="text-white min-h-screen">
-      <motion.div style={{ opacity, scale }} className="container mx-auto px-4">
-        <h2 className="text-4xl text-center mb-12 text-white font-bold">The Challenge</h2>
-        <Card className="bg-[#111132]/50 backdrop-blur-sm border-gray-800 mb-12">
-          <CardHeader>
-            <CardTitle className="text-2xl text-white">How do we ensure reliable and effective AI agent deployment at scale?</CardTitle>
-          </CardHeader>
-          <CardContent className="text-gray-300">
-            <p>We are rapidly approaching a future where AI agents will be integrated into every service and company, with billions of agents operating autonomously. This paradigm shift presents unprecedented challenges that current supervision techniques are ill-equipped to handle.</p>
-          </CardContent>
-        </Card>
-
-        <h3 className="text-2xl mb-6">The Emerging Landscape</h3>
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
-          {landscape.map((item, index) => (
-            <Card key={index} className="bg-[#111132]/50 backdrop-blur-sm border-gray-800">
-              <CardContent className="p-4">
-                <p className="text-gray-300">{item}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        <h3 className="text-2xl mb-6">The Need for Advanced Supervision</h3>
-        <Card className="bg-[#111132]/50 backdrop-blur-sm border-gray-800 mb-12">
-          <CardContent className="p-6 text-gray-300">
-            <p>As we transition towards clusters of millions of agents performing critical tasks across the internet, traditional methods become unsustainable. It is imperative that those deploying agents in real-world scenarios have robust systems to supervise, evaluate, and ensure the reliability of their AI systems.</p>
-          </CardContent>
-        </Card>
-
-        <h3 className="text-2xl mb-6">Key Challenges We Address</h3>
-        <div className="grid md:grid-cols-2 gap-6 mb-16">
-          {challenges.map((challenge, index) => (
-            <Card key={index} className="bg-[#111132]/50 backdrop-blur-sm border-gray-800">
-              <CardHeader>
-                <CardTitle className="text-xl text-white">{challenge}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-gray-400">
-                  {getChallengeDescription(challenge)}
-                </CardDescription>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        <div className="text-center space-y-16 py-48 rounded-3xl backdrop-blur-sm">
-          <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
-            Asteroid is building the foundation for an agent-based future.
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto px-6">
-            As billions of AI agents become woven into the fabric of our digital world,
-            the need for robust supervision isn't just a technical challenge—it's an
-            imperative for humanity's safe transition into an AI-native future.
+    <section ref={containerRef} className="text-white min-h-screen ">
+      <div className="text-center rounded-3xl backdrop-blur-sm space-y-24">
+        <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 font-['Source_Serif_4']">
+          Asteroid is building the foundation for an agent-based future.
+        </h2>
+        {/* Subtitle */}
+        <div className="space-y-8">
+          <p className="text-gray-400 max-w-xl mx-auto">
+            If you're deploying agents and running into challenges relating to reliability, safety or performance, we'd love to chat.
           </p>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto px-6 font-semibold">
-            Asteroid is laying the groundwork for this future, ensuring that every
-            AI agent deployment is reliable, controllable, and aligned with human values.
-          </p>
+          <div>
+            <Link to="https://calendly.com/founders-asteroid/30min">
+              <Button
+                size="lg"
+                className={cn(
+                  "relative group",
+                  "before:absolute before:inset-0 before:rounded-md before:bg-gradient-to-r before:from-indigo-500 before:to-purple-500",
+                  "before:opacity-100",
+                  "text-white",
+                  "transition-all duration-300",
+                  "hover:scale-105 active:scale-95",
+                  "shadow-lg shadow-indigo-500/25",
+                  "overflow-hidden"
+                )}
+              >
+                <span className="relative z-10 flex items-center font-bold tracking-wide">
+                  Get in touch
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
+                </span>
+              </Button>
+            </Link>
+          </div>
         </div>
-      </motion.div>
+
+      </div>
     </section>
   )
 }

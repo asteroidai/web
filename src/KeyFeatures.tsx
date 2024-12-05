@@ -31,9 +31,12 @@ export function KeyFeatures() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   return (
-    <section>
+    <section className="py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl text-center mb-12 text-white font-bold">What it means for your agent</h2>
+        <h2 className="text-4xl text-center mb-12 text-white font-bold font-['Source_Serif_4']">Key Features</h2>
+        <p className="text-center text-gray-400 mb-12">
+          How we're making agents safe, efficient, and ready for production use.
+        </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <motion.div
@@ -43,19 +46,21 @@ export function KeyFeatures() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Card
-                className="h-full transition-all duration-300 ease-in-out hover:shadow-lg bg-[#111132]/50 backdrop-blur-sm border-gray-800"
+                className="relative bg-[#111132]/60 backdrop-blur-md border-none shadow-lg transition-transform transform hover:scale-105 hover:shadow-indigo-500/25"
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-                <CardHeader>
-                  <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-white/5">
+                <CardHeader className="p-12 space-y-8 text-center">
+                  <div className="flex flex-col items-center gap-6">
                     <feature.icon
-                      className={`w-8 h-8 ${hoveredIndex === index ? 'text-white' : 'text-gray-400'
+                      className={`w-12 h-12 ${hoveredIndex === index ? 'text-white' : 'text-gray-400'
                         } transition-colors duration-300`}
                     />
+                    <CardTitle className="text-white font-bold tracking-tight font-['Source_Serif_4']">
+                      {feature.title}
+                    </CardTitle>
                   </div>
-                  <CardTitle className="text-xl mb-2 text-white">{feature.title}</CardTitle>
-                  <CardDescription className="text-gray-400 font-normal">{feature.description}</CardDescription>
+                  <CardDescription className="text-gray-300">{feature.description}</CardDescription>
                 </CardHeader>
               </Card>
             </motion.div>

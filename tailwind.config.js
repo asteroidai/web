@@ -6,9 +6,6 @@ export default {
 		"./src/**/*.{js,ts,jsx,tsx}",
 	],
 	theme: {
-		// fontFamily: {
-		// 	sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-		// },
 		extend: {
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -56,8 +53,7 @@ export default {
 					'4': 'hsl(var(--chart-4))',
 					'5': 'hsl(var(--chart-5))'
 				}
-			}
+			},
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
 }

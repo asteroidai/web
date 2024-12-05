@@ -13,7 +13,7 @@ export default function Hero() {
       <Nav />
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl mb-6 tracking-tight font-bold font-['Source_Serif_4']">
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl mb-6 tracking-tight font-bold font-['Source_Serif_4'] hover:shadow-indigo-500/25">
           Make your AI agent production ready.
         </h1>
         <p className="text-lg sm:text-xl lg:text-2xl mb-8 text-gray-300">
@@ -23,7 +23,6 @@ export default function Hero() {
           Asteroid's SDK and web interface help dynamically oversee, guide, and correct your agents in real-time
         </p>
         <div>
-
           <Link to="https://calendly.com/founders-asteroid/30min">
             <Button
               size="lg"
@@ -49,9 +48,17 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 w-full flex justify-center">
-        <ChevronDown size={32} className="text-white/50 hover:text-white/70 transition-colors cursor-pointer animate-bounce" />
+        <ChevronDown
+          size={32}
+          className="text-white/50 hover:text-white/70 transition-colors cursor-pointer animate-bounce"
+          onClick={() => {
+            window.scrollTo({
+              top: window.innerHeight,
+              behavior: 'smooth'
+            });
+          }}
+        />
       </div>
-
     </div>
   )
 }
