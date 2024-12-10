@@ -8,22 +8,30 @@ const features = [
   {
     icon: Shield,
     title: "Full Control, Zero Compromise",
-    description: "Enjoy the benefits of autonomy in AI agents without the risk. Step in when needed, while agents perform independently when trusted."
+    description: "Enjoy the benefits of autonomy in AI agents without the risk. Step in when needed, while agents perform independently when trusted.",
+    iconColor: "text-emerald-400",
+    iconHoverColor: "text-emerald-600"
   },
   {
     icon: Zap,
     title: "Enforce Policies with Precision",
-    description: "Set clear boundaries for agent behavior and enforce them in real time. Ensure adherence to rules you define, from data access to ethical standards."
+    description: "Set clear boundaries for agent behavior and enforce them in real time. Ensure adherence to rules you define, from data access to ethical standards.",
+    iconColor: "text-amber-400",
+    iconHoverColor: "text-amber-600"
   },
   {
     icon: RefreshCw,
     title: "Continuous Evolution",
-    description: "Bridge the gap between developers and domain experts, turning every interaction into an opportunity for improvement."
+    description: "Bridge the gap between developers and domain experts, turning every interaction into an opportunity for improvement.",
+    iconColor: "text-sky-400",
+    iconHoverColor: "text-sky-600"
   },
   {
     icon: UserCheck,
     title: "Adaptive Learning for Safer Operations",
-    description: "Enable agents to gradually take on more responsibility and make autonomous decisions without compromising safety."
+    description: "Enable agents to gradually take on more responsibility and make autonomous decisions without compromising safety.",
+    iconColor: "text-purple-400",
+    iconHoverColor: "text-purple-600"
   }
 ]
 
@@ -33,9 +41,9 @@ export function KeyFeatures() {
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl text-center mb-12 text-white font-bold font-['Source_Serif_4']">Key Features</h2>
+        <h2 className="text-4xl text-center mb-12 text-white font-bold font-['Source_Serif_4']">Benefits of Using Asteroid</h2>
         <p className="text-center text-gray-400 mb-12">
-          How we're making agents safe, efficient, and ready for production use.
+          Transform your AI agents from experimental to enterprise-ready.
         </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
@@ -53,7 +61,7 @@ export function KeyFeatures() {
                 <CardHeader className="p-12 space-y-8 text-center">
                   <div className="flex flex-col items-center gap-6">
                     <feature.icon
-                      className={`w-12 h-12 ${hoveredIndex === index ? 'text-white' : 'text-gray-400'
+                      className={`w-12 h-12 ${hoveredIndex === index ? feature.iconColor : feature.iconHoverColor
                         } transition-colors duration-300`}
                     />
                     <CardTitle className="text-white font-bold tracking-tight font-['Source_Serif_4']">

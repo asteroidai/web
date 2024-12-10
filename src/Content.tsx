@@ -20,7 +20,7 @@ export default function Component() {
   const [copied, setCopied] = useState(false)
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("founders@asteroid.sh")
+    navigator.clipboard.writeText("founders@asteroid.ai")
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
