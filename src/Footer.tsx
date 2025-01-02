@@ -31,9 +31,9 @@ const iconVariants = {
 }
 
 const socialLinks = [
-  { name: "", href: "https://x.com/asteroid_ai", icon: XIcon },
-  { name: "", href: "https://github.com/asteroidai", icon: GithubIcon },
-  { name: "", href: "https://linkedin.com/company/asteroid-ai", icon: LinkedinIcon },
+  { name: "Twitter", href: "https://x.com/asteroid_ai", icon: XIcon },
+  { name: "Github", href: "https://github.com/asteroidai", icon: GithubIcon },
+  { name: "Linkdin", href: "https://linkedin.com/company/asteroid-ai", icon: LinkedinIcon },
 ]
 
 const resourceLinks = [
@@ -104,7 +104,7 @@ export default function Footer() {
             <div className="flex space-x-4">
               {socialLinks.map((link) => (
                 <FooterLink
-                  key={link.name}
+                  key={link.href}
                   to={link.href}
                   className="flex items-center text-white/60 hover:text-white transition-colors"
                   target="_blank"
