@@ -113,6 +113,7 @@ export default function PricingPage() {
                   <MeetingButton
                     size="lg"
                     text={plan.buttonText}
+                    href={plan.buttonHref}
                   />
                 </Link>
               </CardFooter>

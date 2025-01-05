@@ -7,11 +7,12 @@ import { Link } from "react-router-dom"
 type MeetingButtonProps = {
   size?: "sm" | "lg"
   text?: string
+  href?: string
 }
 
-export default function MeetingButton({ size = "sm", text = "Book a demo" }: MeetingButtonProps) {
+export default function MeetingButton({ size = "sm", text = "Book a demo", href = "https://calendly.com/founders-asteroid-hhaf/30min" }: MeetingButtonProps) {
   return (
-    <Link to="https://calendly.com/founders-asteroid-hhaf/30min">
+    <Link to={href}>
       <Button
         size={size}
         className={cn(
