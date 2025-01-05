@@ -30,11 +30,24 @@ const iconMotionProps = {
   transition: { duration: 0.2 }
 }
 
+// Helper function for smooth scrolling
+const scrollToPricing = (e: React.MouseEvent) => {
+  e.preventDefault()
+  const pricingSection = document.getElementById('pricing')
+  pricingSection?.scrollIntoView({ behavior: 'smooth' })
+}
+
+// Helper function for smooth scrolling
+const scrollToTop = (e: React.MouseEvent) => {
+  e.preventDefault()
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
 // Navigation items
 const navItems = [
   { name: "Docs", href: "https://docs.asteroid.ai", icon: BookIcon },
   { name: "Blog", href: "https://blog.asteroid.ai", icon: LibraryIcon },
-  { name: "Pricing", href: "/pricing", icon: DollarSignIcon },
+  { name: "Pricing", href: "/pricing", icon: DollarSignIcon, onClick: scrollToPricing },
 ]
 
 const socialItems = [
@@ -63,7 +76,7 @@ const SocialButton = ({ icon: Icon, href, label }: { icon: any, href: string, la
 )
 
 const NavItem = ({ item, index, mobile = false, onClick }: {
-  item: typeof navItems[0],
+  item: typeof navItems[0] & { onClick?: (e: React.MouseEvent) => void },
   index: number,
   mobile?: boolean,
   onClick?: () => void
@@ -78,7 +91,10 @@ const NavItem = ({ item, index, mobile = false, onClick }: {
           "flex items-center px-4 py-2 text-base font-medium text-white/70 hover:text-white transition-colors rounded-lg hover:bg-white/5",
           pathname === item.href && "text-white bg-white/10"
         )}
-        onClick={onClick}
+        onClick={(e) => {
+          item.onClick?.(e)
+          onClick?.()
+        }}
         variants={navItemVariants}
         initial="initial"
         animate="animate"
@@ -100,6 +116,7 @@ const NavItem = ({ item, index, mobile = false, onClick }: {
           "hover:bg-transparent active:bg-transparent focus:bg-transparent active:text-white",
           "data-[active]:bg-transparent data-[state=open]:bg-transparent"
         )}
+        onClick={item.onClick}
         initial="initial"
         animate="animate"
         whileHover="hover"
@@ -108,7 +125,6 @@ const NavItem = ({ item, index, mobile = false, onClick }: {
       >
         <motion.div {...iconMotionProps} className="flex items-center gap-2 text-white">
           <div>
-
             <item.icon className="h-4 w-4" />
           </div>
           {item.name}
@@ -138,7 +154,7 @@ export default function Nav() {
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-3 bg-non backdrop-blur-sm">
       <div className="container mx-auto flex items-center justify-between">
         <p className="text-2xl font-['Source_Serif_4'] font-bold text-white">
-          <Link to="/">
+          <Link to="/" onClick={scrollToTop}>
             Asteroid
           </Link>
         </p>
