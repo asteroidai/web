@@ -21,7 +21,7 @@ const pricingPlans = [
     ],
     buttonText: "Get Started",
     buttonVariant: "default",
-    buttonHref: "https://docs.asteroid.ai",
+    buttonHref: "https://platform.asteroid.ai",
     highlighted: false,
   },
   {
