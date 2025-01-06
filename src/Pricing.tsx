@@ -101,9 +101,9 @@ export default function PricingPage() {
                 </p>
                 <ul className="space-y-2">
                   {plan.features.map((feature, index) => (
-                    <li key={index} className="flex items-center text-gray-300">
-                      <Check className="mr-2 h-5 w-5 text-indigo-500" />
-                      <span>{feature}</span>
+                    <li key={index} className="flex items-center text-gray-300 text-left">
+                      <Check className="mr-2 h-5 w-5 text-indigo-500 flex-shrink-0" />
+                      <span className="text-left">{feature}</span>
                     </li>
                   ))}
                 </ul>
