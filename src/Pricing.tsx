@@ -37,7 +37,7 @@ const pricingPlans = [
     ],
     buttonText: "Contact Us",
     buttonVariant: "outline",
-    buttonHref: "mailto:founders@asteroid.ai",
+    buttonHref: "https://calendly.com/founders-asteroid-hhaf/30min",
     highlighted: false,
   },
   {
@@ -55,7 +55,7 @@ const pricingPlans = [
     ],
     buttonText: "Contact Us",
     buttonVariant: "primary",
-    buttonHref: "mailto:founders@asteroid.ai",
+    buttonHref: "https://calendly.com/founders-asteroid-hhaf/30min",
     highlighted: false,
   },
   {
@@ -73,7 +73,7 @@ const pricingPlans = [
     ],
     buttonText: "Contact Us",
     buttonVariant: "outline",
-    buttonHref: "mailto:founders@asteroid.ai",
+    buttonHref: "https://calendly.com/founders-asteroid-hhaf/30min",
     highlighted: false,
   }
 ]
