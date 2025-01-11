@@ -25,6 +25,22 @@ const pricingPlans = [
     highlighted: false,
   },
   {
+    name: "Consultation",
+    description: "For teams looking for expert guidance",
+    price: "$199",
+    period: "/report",
+    features: [
+      "Consultation with an expert",
+      "Managed monitoring of your agent by us",
+      "Report the failure modes of your agent",
+      "Suggested fixes for the failure modes",
+    ],
+    buttonText: "Contact Us",
+    buttonVariant: "outline",
+    buttonHref: "mailto:founders@asteroid.ai",
+    highlighted: false,
+  },
+  {
     name: "Premium",
     description: "For growing teams and startups",
     price: "Custom",
@@ -40,7 +56,7 @@ const pricingPlans = [
     buttonText: "Contact Us",
     buttonVariant: "primary",
     buttonHref: "mailto:founders@asteroid.ai",
-    highlighted: true,
+    highlighted: false,
   },
   {
     name: "Enterprise",
@@ -77,7 +93,7 @@ export default function PricingPage() {
         <h1 className="text-4xl font-semibold mb-4 text-white">Pricing Plans</h1>
         <p className="text-xl text-muted-foreground mb-12">Choose the perfect plan for your needs</p>
 
-        <div className="grid md:grid-cols-3 gap-8 w-full max-w-7xl mt-16">
+        <div className="grid md:grid-cols-4 gap-8 w-full max-w-8xl mt-16">
           {pricingPlans.map((plan) => (
             <Card
               key={plan.name}
