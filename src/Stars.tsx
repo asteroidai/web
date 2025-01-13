@@ -137,7 +137,6 @@ export default function Stars() {
     return (
       <Particles
         id="tsparticles"
-        particlesLoaded={particlesLoaded}
         options={options}
         className="absolute inset-0"
       />
