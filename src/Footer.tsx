@@ -31,12 +31,12 @@ const iconVariants = {
 
 const socialLinks = [
   {
-    name: "",
+    name: "X",
     href: "https://x.com/asteroid_inc",
     icon: () => <img src="/twitter.png" alt="X/Twitter" className="h-3 w-3 brightness-0 invert" />
   },
-  { name: "", href: "https://github.com/asteroidai", icon: GithubIcon },
-  { name: "", href: "https://linkedin.com/company/asteroid-ai", icon: LinkedinIcon },
+  { name: "GitHub", href: "https://github.com/asteroidai", icon: GithubIcon },
+  { name: "LinkedIn", href: "https://linkedin.com/company/asteroid-ai", icon: LinkedinIcon },
 ]
 
 const resourceLinks = [
