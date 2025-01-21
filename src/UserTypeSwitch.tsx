@@ -1,13 +1,12 @@
 import * as React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
+import { useContext } from "react"
+import { UserContext } from "@/contexts/UserContext"
 
-interface FancySwitchProps {
-  userType: 'developer' | 'business'
-  setUserType: (userType: 'developer' | 'business') => void
-}
+export const UserTypeSwitch: React.FC = React.memo(() => {
+  const { userType, setUserType } = useContext(UserContext)
 
-export const UserTypeSwitch: React.FC<FancySwitchProps> = React.memo(({ userType, setUserType }) => {
   const [isProductOwner, setIsProductOwner] = useState(userType === 'business')
 
   const toggleSwitch = () => {

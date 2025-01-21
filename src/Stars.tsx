@@ -3,7 +3,6 @@ import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import {
   type ISourceOptions,
-  MoveDirection,
   OutMode,
 } from "@tsparticles/engine";
 // import { loadAll } from "@tsparticles/all"; // if you are going to use `loadAll`, install the "@tsparticles/all" package too.
@@ -50,47 +49,55 @@ export default function Stars() {
         },
       },
       particles: {
+        number: {
+          value: 100,
+          density: {
+            enable: true,
+            area: 800,
+          },
+        },
         color: {
           value: "#E6E6FA",
         },
+        shape: {
+          type: ["circle", "triangle"],
+        },
+        size: {
+          value: { min: 1, max: 3, offset: 0 },
+          random: {
+            enable: true,
+            minimumValue: 1,
+          },
+          animation: {
+            enable: false,
+          },
+        },
         move: {
-          direction: MoveDirection.bottom,
           enable: true,
+          speed: { min: 2, max: 5, offset: 0 },
+          direction: "none",
+          random: false,
+          straight: false,
           outModes: {
             default: OutMode.out,
           },
-          random: false,
-          speed: 2,
-          straight: true,
           angle: {
-            value: 270,
+            value: { min: 0, max: 360 },
             offset: 0,
           },
+
           decay: 0,
           gravity: {
             enable: false,
             acceleration: 0,
           },
         },
-        number: {
-          density: {
-            enable: true,
-            area: 800,
-          },
-          value: 100,
-        },
         opacity: {
-          animation: {
-            enable: false,
+          value: { min: 0.5, max: 0.8, offset: 0 },
+          random: {
+            enable: true,
+            minimumValue: 0.5,
           },
-          value: { min: 0.5, max: 0.8 },
-        },
-        shape: {
-          type: "circle",
-        },
-        size: {
-          value: { min: 1, max: 3 },
-          random: true,
           animation: {
             enable: false,
           },

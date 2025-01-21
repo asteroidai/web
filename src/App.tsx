@@ -10,17 +10,11 @@ import { InstallTerminal } from "@/Install"
 import PricingSection from "@/Pricing"
 
 export default function App() {
-  const [userType, setUserType] = useState<'developer' | 'business'>('developer')
-
-  console.log("Rendering")
-
   return (
     <>
       <Stars />
-      <div>
-        <InstallTerminal />
-        <Hero userType={userType} setUserType={setUserType} />
-      </div>
+      <InstallTerminal />
+      <Hero />
 
       {/* Main content */}
       <div className="relative z-10 flex flex-col space-y-32 md:space-y-48 lg:space-y-64">

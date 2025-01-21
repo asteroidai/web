@@ -5,13 +5,11 @@ import { cn } from "@/lib/utils"
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { UserTypeSwitch } from './UserTypeSwitch'
+import { useContext } from 'react'
+import { UserContext } from '@/contexts/UserContext'
 
-interface HeroProps {
-  userType: 'developer' | 'business'
-  setUserType: (userType: 'developer' | 'business') => void
-}
-
-export default function Hero({ userType, setUserType }: HeroProps) {
+export default function Hero() {
+  const { userType } = useContext(UserContext)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -69,7 +67,7 @@ export default function Hero({ userType, setUserType }: HeroProps) {
         </motion.div>
 
         <div className="flex justify-center">
-          <UserTypeSwitch userType={userType} setUserType={setUserType} />
+          <UserTypeSwitch />
         </div>
       </div >
 
