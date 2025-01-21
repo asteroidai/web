@@ -1,6 +1,6 @@
 import * as React from "react"
 import { motion } from "framer-motion"
-import { MenuIcon, Slack, GithubIcon, BookIcon, LibraryIcon, CalendarIcon, ArrowRight, DollarSignIcon } from 'lucide-react'
+import { MenuIcon, Slack, GithubIcon, BookIcon, LibraryIcon, DollarSignIcon } from 'lucide-react'
 import { cn } from "@/lib/utils"
 import { Link, useLocation } from "react-router-dom"
 import {
@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import MeetingButton from "./MeetingButton"
+import { DemoButton } from "./DemoButton"
 
 const NavLink = motion(Link)
 
@@ -64,7 +65,7 @@ const socialItems = [
 ]
 
 // Reusable components
-const SocialButton = ({ icon: Icon, href, label }: { icon: any, href: string, label: string }) => (
+const SocialButton = ({ icon: Icon, href, label }: { icon: React.ElementType, href: string, label: string }) => (
   <motion.div initial="initial" animate="animate" whileHover="hover" variants={navItemVariants}>
     <Link to={href} target="_blank" rel="noopener noreferrer">
       <Button variant="ghost" size="icon" className="bg-transparent text-white hover:text-white/80 hover:bg-transparent">
@@ -215,13 +216,15 @@ export default function Nav() {
           </SheetContent>
         </Sheet>
 
+        <DemoButton />
+
         {/* Conditional CTA Button */}
-        <div className={cn(
+        {/* <div className={cn(
           "transition-all duration-300",
           showCTA ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
         )}>
           <MeetingButton />
-        </div>
+        </div> */}
       </div>
     </nav>
   )

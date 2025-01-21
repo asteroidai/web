@@ -2,6 +2,7 @@ import * as React from "react"
 import { Highlight, themes } from "prism-react-renderer"
 import { CopyIcon, CheckIcon, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { cn } from "./lib/utils"
 
 const defaultCode = ``
 
@@ -27,6 +28,41 @@ export const Terminal: React.FC<TerminalProps> = ({
   const [showModal, setShowModal] = React.useState(false)
   const [copied, setCopied] = React.useState(false)
   const [isVisible, setIsVisible] = React.useState(true)
+  const [position, setPosition] = React.useState({ x: 0, y: 0 })
+  const [isDragging, setIsDragging] = React.useState(false)
+  const [dragOffset, setDragOffset] = React.useState({ x: 0, y: 0 })
+
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    setIsDragging(true)
+    setDragOffset({
+      x: e.clientX - position.x,
+      y: e.clientY - position.y
+    })
+  }
+
+  const handleMouseMove = (e: MouseEvent) => {
+    if (isDragging) {
+      setPosition({
+        x: e.clientX - dragOffset.x,
+        y: e.clientY - dragOffset.y
+      })
+    }
+  }
+
+  const handleMouseUp = () => {
+    setIsDragging(false)
+  }
+
+  React.useEffect(() => {
+    if (isDragging) {
+      window.addEventListener('mousemove', handleMouseMove)
+      window.addEventListener('mouseup', handleMouseUp)
+    }
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('mouseup', handleMouseUp)
+    }
+  }, [isDragging])
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(code.trim())
@@ -51,10 +87,17 @@ export const Terminal: React.FC<TerminalProps> = ({
   return (
     <>
       <div
-        className="rounded-lg overflow-hidden border border-none bg-[#0E0E0E] shadow-lg"
-        style={containerStyle}
+        className="rounded-lg overflow-hidden border border-none bg-[#0E0E0E] shadow-lg absolute"
+        style={{
+          ...containerStyle,
+          transform: `translate(${position.x}px, ${position.y}px)`,
+          cursor: isDragging ? 'grabbing' : 'grab'
+        }}
       >
-        <div className="bg-[#2D2D2D] px-6 py-2 flex items-center justify-between gap-2">
+        <div
+          className="bg-[#2D2D2D] px-6 py-2 flex items-center justify-between gap-2"
+          onMouseDown={handleMouseDown}
+        >
           <div className="flex items-center gap-2">
             <div className="flex gap-2">
               <div
@@ -88,7 +131,7 @@ export const Terminal: React.FC<TerminalProps> = ({
           language={language}
         >
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre className="px-4 py-4 overflow-auto text-sm" style={style}>
+            <pre className={cn("px-4 py-4 overflow-auto text-sm", className)} style={style}>
               {tokens.map((line, i) => (
                 <div key={i} {...getLineProps({ line })} className="flex">
                   {lineNumbers && (

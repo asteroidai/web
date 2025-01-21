@@ -52,7 +52,8 @@ export default function Footer() {
   const [title, setTitle] = useState('')
   const [text, setText] = useState('')
 
-  const onSubmit = (_: React.MouseEvent<HTMLButtonElement>) => {
+  const onSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     if (!email || !email.includes('@') || !email.includes('.')) {
       setTitle('Something went wrong!')
       setText('Please enter a valid email address.')
@@ -120,7 +121,6 @@ export default function Footer() {
                   variants={iconVariants}
                 >
                   <link.icon className="h-4 w-4" />
-                  <span className="ml-2">{link.name}</span>
                 </FooterLink>
               ))}
             </div>

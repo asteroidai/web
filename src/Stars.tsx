@@ -2,7 +2,6 @@ import * as React from "react";
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import {
-  type Container,
   type ISourceOptions,
   MoveDirection,
   OutMode,
@@ -39,35 +38,15 @@ export default function Stars() {
       },
       fpsLimit: 120,
       interactivity: {
+        detectsOn: "canvas",
         events: {
           onClick: {
-            enable: true,
-            mode: "grab",
+            enable: false,
           },
           onHover: {
-            enable: true,
-            mode: "connect",
-            parallax: {
-              enable: true,
-              force: 6,
-              smooth: 10
-            }
+            enable: false,
           },
-        },
-        modes: {
-          connect: {
-            distance: 80,
-            links: {
-              opacity: 0.2
-            },
-            radius: 60
-          },
-          grab: {
-            distance: 100,
-            links: {
-              opacity: 0.2
-            }
-          }
+          resize: { enable: true },
         },
       },
       particles: {
@@ -75,26 +54,22 @@ export default function Stars() {
           value: "#E6E6FA",
         },
         move: {
-          direction: MoveDirection.none,
+          direction: MoveDirection.bottom,
           enable: true,
           outModes: {
             default: OutMode.out,
           },
           random: false,
-          speed: 1,
+          speed: 2,
           straight: true,
-          center: {
-            x: 50,
-            y: 50,
-            mode: "percent"
+          angle: {
+            value: 270,
+            offset: 0,
           },
-          path: {
-            clamp: false,
-            enable: true,
-            delay: {
-              value: 0
-            },
-            generator: "radialPattern"
+          decay: 0,
+          gravity: {
+            enable: false,
+            acceleration: 0,
           },
         },
         number: {
@@ -106,13 +81,9 @@ export default function Stars() {
         },
         opacity: {
           animation: {
-            enable: true,
-            minimumValue: 0.1,
-            speed: 0.8,
-            sync: false,
+            enable: false,
           },
-          random: true,
-          value: { min: 0.1, max: 0.8 },
+          value: { min: 0.5, max: 0.8 },
         },
         shape: {
           type: "circle",
@@ -121,10 +92,7 @@ export default function Stars() {
           value: { min: 1, max: 3 },
           random: true,
           animation: {
-            enable: true,
-            speed: 2,
-            minimumValue: 0.1,
-            sync: false,
+            enable: false,
           },
         },
       },
@@ -138,10 +106,10 @@ export default function Stars() {
       <Particles
         id="tsparticles"
         options={options}
-        className="absolute inset-0"
+        className="absolute inset-0 z-0"
       />
     );
   }
 
   return <></>;
-};
+}

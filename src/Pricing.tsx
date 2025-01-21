@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { Check, Zap } from 'lucide-react'
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import Page from './components/Page'
 import { Link } from 'react-router-dom'
@@ -81,7 +80,6 @@ const pricingPlans = [
 export default function PricingPage() {
   return (
     <Page className="relative">
-
       <div className="relative z-10">
         <div className="flex justify-center items-center mb-4">
           <img
