@@ -11,6 +11,18 @@ import { DemoButton } from '@/DemoButton'
 
 export default function Hero() {
   const { userType, content } = useContext(UserContext)
+  const [isVisible, setIsVisible] = React.useState(true)
+
+  // Add scroll listener
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY
+      setIsVisible(scrollPosition < window.innerHeight * 0.5)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -48,11 +60,12 @@ export default function Hero() {
 
         <DemoButton />
 
-        {/* Animated YC badge */}
-        <YCBadge />
-
       </div >
 
+      {/* Move YC badge outside the main content div and position it fixed */}
+      <div className="fixed bottom-8 left-8 z-50">
+        <YCBadge isVisible={isVisible} />
+      </div>
 
       {/* Scroll indicator */}
       < div className="absolute bottom-16 w-full flex justify-center" >
@@ -71,18 +84,17 @@ export default function Hero() {
   )
 }
 
-
-// Split the YC badge into 2 parts, and animate them in and out
-function YCBadge() {
+// Update YC badge to accept visibility prop
+function YCBadge({ isVisible }: { isVisible: boolean }) {
   return (
-    <div className="pt-16">
+    <div className="">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+        animate={{ opacity: isVisible ? 1 : 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="flex items-center justify-center gap-3 text-gray-400"
       >
-        <span className=" pb-[4px] mr-[-5px] text-gray-600">backed by</span>
+        <span className="pb-[4px] mr-[-5px] text-gray-600">backed by</span>
         <a
           href="https://www.ycombinator.com"
           target="_blank"
