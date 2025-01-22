@@ -1,11 +1,12 @@
 import * as React from 'react'
 import { Check, Zap } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
-import Page from './components/Page'
 import { Link } from 'react-router-dom'
-import MeetingButton from './MeetingButton'
-import { cn } from './lib/utils'
-import Section from '@/Section'
+import MeetingButton from '@/MeetingButton'
+import { cn } from '@/utils'
+import Section from '@/sections/Section'
+import { useContext } from 'react'
+import { UserContext } from '../contexts/UserContext'
 
 const pricingPlans = [
   {
@@ -66,10 +67,12 @@ const pricingPlans = [
 ]
 
 export default function Pricing() {
+  const { content } = useContext(UserContext)
+
   return (
     <Section
-      title="Get Started"
-      subtitle="Choose the plan for your needs"
+      title={content.pricingTitle}
+      subtitle={content.pricingSubtitle}
       id="pricing"
     >
       <div className="grid md:grid-cols-3 gap-8 w-full max-w-8xl mt-16">

@@ -223,15 +223,14 @@ export default function Nav() {
           </SheetContent>
         </Sheet>
 
-        <DemoButton />
 
         {/* Conditional CTA Button */}
-        {/* <div className={cn(
+        <div className={cn(
           "transition-all duration-300",
           showCTA ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
         )}>
-          <MeetingButton />
-        </div> */}
+          <MeetingButton solid />
+        </div>
       </div>
     </nav>
   )

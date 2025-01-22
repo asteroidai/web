@@ -27,9 +27,9 @@ export default function MeetingButton({
           solid && [
             "bg-indigo-500 text-white hover:bg-indigo-600",
             "relative group",
-            "before:absolute before:inset-0 before:rounded-md before:bg-gradient-to-r before:from-indigo-500 before:to-purple-500",
+            "before:absolute before:inset-0 before:rounded-md before:bg-gradient-to-r before:from-indigo-500 before:to-indigo-500",
             "before:opacity-10",
-            "bg-gradient-to-r from-indigo-500 to-purple-500",
+            "bg-gradient-to-r from-indigo-500 to-indigo-500",
             "border border-indigo-500/50",
             "transition-all duration-300",
             "hover:scale-105 active:scale-95",

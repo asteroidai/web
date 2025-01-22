@@ -4,6 +4,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Box, BarChart2, History, ToggleLeft, Swords } from "lucide-react"
 import Terminal from './Terminal'
 import { UserContext } from './contexts/UserContext'
+import { cn } from './lib/utils'
 
 const tabData = [
   {
@@ -12,6 +13,7 @@ const tabData = [
     content: "View all your important metrics at a glance on the dashboard.",
     code: "console.log('Hello, world!')",
     image: "https://plus.unsplash.com/premium_photo-1674506654010-22677db35bdf?q=80&w=2660&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    color: "purple"
   },
   {
     title: "Product analytics",
@@ -19,6 +21,7 @@ const tabData = [
     content: "Dive deep into your data with our powerful analytics tools.",
     code: "console.log('Hello, world!')",
     image: "/placeholder.svg?height=400&width=400",
+    color: "blue"
   },
   {
     title: "Session replay",
@@ -26,6 +29,7 @@ const tabData = [
     content: "Generate and export detailed reports for your business needs.",
     code: "console.log('Hello, world!')",
     image: "/placeholder.svg?height=400&width=400",
+    color: "sky"
   },
   {
     title: "Feature flags",
@@ -33,6 +37,7 @@ const tabData = [
     content: "Customize your experience with our flexible settings options.",
     code: "console.log('Hello, world!')",
     image: "/placeholder.svg?height=400&width=400",
+    color: "amber"
   },
   {
     title: "Experiments",
@@ -40,6 +45,7 @@ const tabData = [
     content: "Get assistance and answers to your questions in our help center.",
     code: "console.log('Hello, world!')",
     image: "/placeholder.svg?height=400&width=400",
+    color: "green"
   },
 ]
 
@@ -55,25 +61,31 @@ export default function TabsWithContent() {
             <TabsTrigger
               key={index}
               value={index.toString()}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-400 
-                bg-transparent border-b-0 relative
-                hover:bg-[#1a1c2e] hover:text-white
-                hover:after:content-[''] hover:after:absolute hover:after:left-0 
-                hover:after:bottom-0 hover:after:w-full hover:after:h-[1px]
-                hover:after:bg-gray-900
-                transition-[background-color,color] duration-200 ease-in-out
-                data-[state=active]:bg-white/10 data-[state=active]:text-white"
+              className={cn(
+                "flex items-center gap-2 px-4 py-2 rounded-lg",
+                "text-gray-400 bg-transparent border-b-0 relative",
+                "hover:bg-[#1a1c2e] hover:text-white",
+                "hover:after:content-[''] hover:after:absolute hover:after:left-0",
+                "hover:after:bottom-0 hover:after:w-full hover:after:h-[1px]",
+                "hover:after:bg-gray-900",
+                "transition-all duration-300 ease-in-out",
+                "data-[state=active]:bg-white/10 data-[state=active]:text-white",
+                "font-bold",
+                `text-indigo-100`,
+                "shadow-[0_0_0_rgba(0,0,0,0)]",
+                `hover:shadow-[5px_5px_0_var(--purple-100)]`,
+              )}
             >
-              <span>{tab.icon}</span>
+              <span className={`text-indigo-500`}>{tab.icon}</span>
               {tab.title}
             </TabsTrigger>
           ))}
         </TabsList>
       </Tabs>
       <div className="mt-6">
-        <ContentSection content={tabData[activeTab].content} image={tabData[activeTab].image} code={tabData[activeTab].code} />
+        < ContentSection content={tabData[activeTab].content} image={tabData[activeTab].image} code={tabData[activeTab].code} />
       </div>
-    </div>
+    </div >
   )
 }
 

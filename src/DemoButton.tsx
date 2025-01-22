@@ -8,10 +8,10 @@ export const DemoButton: React.FC = () => {
     <div className="">
       <Link to="https://calendly.com/founders-asteroid-hhaf/30min">
         <Button
-          size="sm"
+          size="lg"
           className={cn(
             "relative group",
-            "before:absolute before:inset-0 before:rounded-md before:bg-gradient-to-r before:from-indigo-500 before:to-purple-500",
+            "before:absolute before:inset-0 before:rounded-md before:bg-gradient-to-r before:from-indigo-500 before:to-indigo-500",
             "before:opacity-100",
             "text-white",
             "transition-all duration-300",

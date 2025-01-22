@@ -16,7 +16,7 @@ export default function Section({ title, subtitle, children, id }: SectionProps)
             {title}
           </h1>
           {subtitle && (
-            <p className="text-lg text-center text-muted-foreground">
+            <p className="text-lg text-center text-muted-foreground max-w-2xl mx-auto">
               {subtitle}
             </p>
           )}

@@ -1,12 +1,8 @@
 import * as React from "react"
-import { useRef, useEffect } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Link } from "react-router-dom"
-import { Button } from "./components/ui/button"
-import { ArrowRight } from "lucide-react"
-import { cn } from "./utils"
-import MeetingButton from "./MeetingButton"
+import { useRef, useContext } from 'react'
+import { useScroll, useTransform } from 'framer-motion'
+import MeetingButton from "../MeetingButton"
+import { UserContext } from "../contexts/UserContext"
 // import { Badge } from "@/components/ui/badge"
 
 export default function Challenges() {
@@ -15,6 +11,8 @@ export default function Challenges() {
     target: containerRef,
     offset: ["start end", "end start"]
   })
+
+  const { content } = useContext(UserContext)
 
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
   const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.8, 1, 1, 0.8])
@@ -51,7 +49,7 @@ export default function Challenges() {
         {/* Subtitle */}
         <div className="space-y-8">
           <p className="text-gray-400 max-w-xl mx-auto">
-            If you're deploying agents and running into challenges relating to reliability, safety or performance, we'd love to chat.
+            {content.outroDescription}
           </p>
           <div>
             <MeetingButton />
