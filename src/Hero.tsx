@@ -9,7 +9,7 @@ import { useContext } from 'react'
 import { UserContext } from '@/contexts/UserContext'
 
 export default function Hero() {
-  const { userType } = useContext(UserContext)
+  const { userType, content } = useContext(UserContext)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -41,10 +41,8 @@ export default function Hero() {
           </motion.div>
         </div>
         <div className="space-y-24">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight font-bold font-semibold text-white tracking-wide">
-            Mission control for
-            <br />
-            <span className="">AI browser</span> agents.
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight font-thin text-white tracking-wide">
+            {content.title}
           </h1>
         </div>
 
@@ -54,16 +52,9 @@ export default function Hero() {
           variants={containerVariants}
           className="text-base sm:text-lg lg:text-xl mb-12 text-gray-400 max-w-6xl mx-auto"
         >
-          {userType == 'business' && (
-            <p className="text-lg sm:text-xl lg:text-2xl mb-8 text-gray-400 tracking-wide">
-              Build and deploy continuously improving web agents, invoke via API.
-            </p>
-          )}
-          {userType == 'developer' && (
-            <p className="text-lg sm:text-xl lg:text-2xl mb-8 text-gray-400 tracking-wide">
-              Automate any web workflow with plain English commands.
-            </p>
-          )}
+          <p className="text-lg sm:text-xl lg:text-2xl mb-8 text-gray-400 tracking-wide">
+            {content.subtitle}
+          </p>
         </motion.div>
 
         <div className="flex justify-center">

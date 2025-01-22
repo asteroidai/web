@@ -8,21 +8,23 @@ import Challenges from "@/Challenges"
 import Step123 from "@/Step123"
 import { InstallTerminal } from "@/Install"
 import PricingSection from "@/Pricing"
+import Stars2 from "./Stars2"
 
 export default function App() {
   return (
     <>
-      <Stars />
+
+      <Stars2 />
       <InstallTerminal />
       <Hero />
 
       {/* Main content */}
       <div className="relative z-10 flex flex-col space-y-32 md:space-y-48 lg:space-y-64">
-        <div className="bg-[#0A0A1F] w-full flex flex-col space-y-24 md:space-y-32 lg:space-y-48">
+        <div className="bg-none w-full flex flex-col space-y-24 md:space-y-32 lg:space-y-48">
           <div className="container max-w-6xl mx-auto">
             <Step123 />
           </div>
-          <div className="container max-w-6xl mx-auto">
+          {/* <div className="container max-w-6xl mx-auto">
             <DeploymentSteps />
           </div>
           <div className="container max-w-6xl mx-auto">
@@ -32,7 +34,7 @@ export default function App() {
             <PricingSection />
           </div>
           <div className="container max-w-6xl mx-auto">
-          </div>
+          </div> */}
         </div>
 
         <Challenges />

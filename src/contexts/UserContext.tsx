@@ -3,12 +3,6 @@ import { ReactNode, useState, createContext } from 'react';
 
 type UserType = 'developer' | 'business';
 
-interface UserContextProps {
-  userType: UserType;
-  setUserType: React.Dispatch<React.SetStateAction<UserType>>;
-  content: Content;
-}
-
 export const UserContext = createContext<UserContextProps | undefined>(undefined);
 
 export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
@@ -22,20 +16,43 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   );
 };
 
+interface UserContextProps {
+  userType: UserType;
+  setUserType: React.Dispatch<React.SetStateAction<UserType>>;
+  content: Content;
+}
+
 interface Content {
   title: string;
-  description: string;
-  features: string[];
+  subtitle: string;
+  integrationCode: string;
+  gifTitle: string;
+  gifDescription: string;
 }
 
 const developContent: Content = {
-  title: "sdsdfsdf",
-  description: "Developer description",
-  features: ["Feature 1", "Feature 2", "Feature 3"]
+  title: "Build and orchestrate your AI browser workforce",
+  subtitle: "Invoke with a single API call, and let us handle the rest",
+  integrationCode: `
+# Initialize Asteroid
+run_id = asteroid_init()
+
+# Wrap your favourite LLM client
+client = asteroid_openai_client(OpenAI(), run_id)
+
+# Wrap agent functions with custom/built-in supervisors
+@supervise(human_supervisor())
+def database_modify(query: str):
+    """Modify the database."""
+`,
+  gifTitle: "Deploy & Monitor",
+  gifDescription: "Integrate into Asteroid in just a few lines of code",
 }
 
 const businessContent: Content = {
-  title: "Business",
-  description: "Business description",
-  features: ["Feature 1", "Feature 2", "Feature 3"]
+  title: "Build and orchestrate your AI browser workforce",
+  subtitle: "Automate your web workflows with plain English. Reliable, scalable, and fast.",
+  integrationCode: '',
+  gifTitle: "Take the manual out of your workflow",
+  gifDescription: "Integrate into Asteroid in just a few lines of code",
 }

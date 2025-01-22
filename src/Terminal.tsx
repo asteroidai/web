@@ -87,9 +87,8 @@ export const Terminal: React.FC<TerminalProps> = ({
   return (
     <>
       <div
-        className="rounded-lg overflow-hidden border border-none bg-[#0E0E0E] shadow-lg absolute"
+        className="rounded-lg overflow-hidden border border-none bg-[#0E0E0E] shadow-lg relative w-full h-full"
         style={{
-          ...containerStyle,
           transform: `translate(${position.x}px, ${position.y}px)`,
           cursor: isDragging ? 'grabbing' : 'grab'
         }}
@@ -131,7 +130,7 @@ export const Terminal: React.FC<TerminalProps> = ({
           language={language}
         >
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre className={cn("px-4 py-4 overflow-auto text-sm", className)} style={style}>
+            <pre className={cn("px-4 py-4 overflow-auto text-sm h-full", className)} style={style}>
               {tokens.map((line, i) => (
                 <div key={i} {...getLineProps({ line })} className="flex">
                   {lineNumbers && (
