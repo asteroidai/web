@@ -35,14 +35,14 @@ export const UserTypeSwitch: React.FC = React.memo(() => {
         }}
         transition={{ type: "spring", stiffness: 700, damping: 30 }}
       >
-        <div className="absolute inset-0 flex items-center justify-between px-6">
+        <div className="absolute inset-0 flex items-center justify-between px-6 gap-2">
           <span
-            className={`text-sm font-medium transition-colors select-none ${!isProductOwner ? "text-purple-600" : "text-gray-600"}`}
+            className={`text-sm font-medium transition-colors select-none whitespace-nowrap ${!isProductOwner ? "text-purple-600" : "text-gray-600"}`}
           >
             I'm a developer
           </span>
           <span
-            className={`text-sm font-medium transition-colors select-none ${isProductOwner ? "text-white" : "text-gray-500"}`}
+            className={`text-sm font-medium transition-colors select-none whitespace-nowrap ${isProductOwner ? "text-white" : "text-gray-500"}`}
           >
             I'm a product owner
           </span>

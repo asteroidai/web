@@ -1,4 +1,3 @@
-import Stars from '@/Stars';
 import * as React from 'react';
 
 interface PageProps {
