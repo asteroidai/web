@@ -27,8 +27,8 @@ const pricingPlans = [
   {
     name: "Consultation",
     description: "For teams looking for expert guidance",
-    price: "$199",
-    period: "/report",
+    price: "Custom",
+    period: "",
     features: [
       "Consultation with an expert",
       "Managed monitoring of your agent by us",
