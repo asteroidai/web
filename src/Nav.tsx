@@ -35,7 +35,14 @@ const iconMotionProps = {
 const scrollToPricing = (e: React.MouseEvent) => {
   e.preventDefault()
   const pricingSection = document.getElementById('pricing')
-  pricingSection?.scrollIntoView({ behavior: 'smooth' })
+  if (pricingSection) {
+    const offset = window.innerHeight * 0.20 // 20% of viewport height
+    const elementPosition = pricingSection.getBoundingClientRect().top + window.scrollY
+    window.scrollTo({
+      top: elementPosition - offset,
+      behavior: 'smooth'
+    })
+  }
 }
 
 // Helper function for smooth scrolling

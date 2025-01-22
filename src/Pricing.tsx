@@ -5,6 +5,8 @@ import Page from './components/Page'
 import { Link } from 'react-router-dom'
 import MeetingButton from './MeetingButton'
 import { cn } from './lib/utils'
+import Section from '@/Section'
+
 const pricingPlans = [
   {
     name: "Builder",
@@ -65,10 +67,11 @@ const pricingPlans = [
 
 export default function Pricing() {
   return (
-    <div className="relative z-10">
-      <h1 className="text-4xl font-semibold mb-4 text-white">Get Started</h1>
-      <p className="text-xl text-muted-foreground mb-12">Choose the plan for your needs</p>
-
+    <Section
+      title="Get Started"
+      subtitle="Choose the plan for your needs"
+      id="pricing"
+    >
       <div className="grid md:grid-cols-3 gap-8 w-full max-w-8xl mt-16">
         {pricingPlans.map((plan) => (
           <Card
@@ -120,7 +123,7 @@ export default function Pricing() {
           </Card>
         ))}
       </div>
-    </div>
+    </Section>
   )
 }
 

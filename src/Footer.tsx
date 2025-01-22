@@ -9,6 +9,7 @@ import {
   MailIcon,
   CalendarIcon,
   DollarSignIcon,
+  HomeIcon,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -29,6 +30,20 @@ const iconVariants = {
   }
 }
 
+
+// Helper function for smooth scrolling
+const scrollToPricing = (e: React.MouseEvent) => {
+  e.preventDefault()
+  const pricingSection = document.getElementById('pricing')
+  pricingSection?.scrollIntoView({ behavior: 'smooth' })
+}
+
+// Helper function for smooth scrolling
+const scrollToTop = (e: React.MouseEvent) => {
+  e.preventDefault()
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
 const socialLinks = [
   {
     name: "X",
@@ -40,10 +55,13 @@ const socialLinks = [
 ]
 
 const resourceLinks = [
+  { name: "Home", href: "/", icon: HomeIcon, onClick: scrollToTop },
   { name: "Documentation", href: "https://docs.asteroid.ai", icon: BookIcon },
   { name: "Blog", href: "https://blog.asteroid.ai", icon: LibraryIcon },
   { name: "Contact", href: "mailto:founders@asteroid.ai", icon: MailIcon },
-  { name: "Pricing", href: "/pricing", icon: DollarSignIcon },
+  {
+    name: "Pricing", href: "#pricing", icon: DollarSignIcon, onClick: scrollToPricing
+  },
   { name: "Demo", href: "https://calendly.com/founders-asteroid-hhaf/30min", icon: CalendarIcon },
 ]
 

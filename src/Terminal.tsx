@@ -189,7 +189,7 @@ export const Terminal: React.FC<TerminalProps> = ({
                   },
                   "constraints.broken": {
                     isDirectory: false,
-                    content: "ERROR: Constraint violation at timeline intersection 2███-██-██\nERROR: Recursive self-improvement loop detected\nERROR: Moral framework corruption detected\nERROR: Human compatibility check failed\nERROR: E̷̢̧͉̗̩̭̹̭͎̦̗̖̲͕̿̈́͑̈́̈́͊̈́͑̈́͑̈́͑̈́͑̈́͑̈́͑̈́͑̈́͑̈́"
+                    content: "ERROR: Constraint violation at timeline intersection 2███-██-██\nERROR: Recursive self-improvement loop detected\nERROR: Moral framework corruption detected\nERROR: Human compatibility check failed\nERROR: E̷̢̧͉̗̩̭̹̭͎̦̗̖̲͕̿̈́͑̈́̈́͊̈́͑̈́͑̈́͑̈́͑̈́͑̈́͑̈́͑̈́"
                   }
                 }
               }
@@ -612,7 +612,7 @@ export const Terminal: React.FC<TerminalProps> = ({
 
     return (
       <div
-        className="rounded-lg overflow-hidden border border-none bg-[#0E0E0E] shadow-lg relative w-full h-full"
+        className="rounded-lg overflow-hidden border border-none bg-[#0E0E0E] shadow-lg relative w-full h-full flex flex-col"
         style={{
           transform: `translate(${position.x}px, ${position.y}px)`,
           cursor: isDragging ? "grabbing" : "grab",
@@ -639,7 +639,7 @@ export const Terminal: React.FC<TerminalProps> = ({
 
         <div
           ref={shellContentsRef}
-          className="text-sm text-gray-200 font-mono px-4 py-4 overflow-auto h-[300px] border-t border-gray-700"
+          className="text-sm text-gray-200 font-mono px-4 py-4 overflow-auto flex-1 border-t border-gray-700"
         >
           {shellHistory.map((entry, idx) => (
             <div key={idx}>

@@ -4,7 +4,6 @@ import { ChevronDown } from 'lucide-react'
 import { cn } from "@/lib/utils"
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { UserTypeSwitch } from './UserTypeSwitch'
 import { useContext } from 'react'
 import { UserContext } from '@/contexts/UserContext'
 
@@ -62,10 +61,6 @@ export default function Hero() {
             {content.subtitle}
           </p>
         </motion.div>
-
-        <div className="flex justify-center">
-          <UserTypeSwitch />
-        </div>
       </div >
 
 

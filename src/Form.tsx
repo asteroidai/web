@@ -10,6 +10,7 @@ import { cn } from './utils'
 import { useToast } from "@/hooks/use-toast"
 import { motion } from 'framer-motion'
 import validator from 'validator'
+import Section from './Section'
 
 export default function Form() {
   const [userQuery, setUserQuery] = useState('')
@@ -60,12 +61,11 @@ export default function Form() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center space-y-8 p-48">
-      <div className="flex flex-col items-center justify-center space-y-2">
-        <h3 className="text-3xl font-semibold text-white">Need a custom browser automation?</h3>
-        <p className="text-white/60">We can rapidly prototype, build and host custom browser automations for your specific use case.</p>
-      </div>
-      <div className="flex gap-2 w-full">
+    <Section
+      title="Need a custom browser automation?"
+      subtitle="We can rapidly prototype, build and host custom browser automations for your specific use case."
+    >
+      <div className="flex gap-2 w-[70%] mx-auto">
         <Input
           placeholder="I need an agent to automate text input in insurance portals"
           value={userQuery}
@@ -127,7 +127,7 @@ export default function Form() {
           <span>Thank you! We'll be in touch soon.</span>
         </motion.div>
       )}
-    </div>
+    </Section>
   );
 }
 
