@@ -1,14 +1,14 @@
 import * as React from "react"
 import { useState } from "react"
-import Stars from "@/Stars"
 import Hero from "@/Hero"
 import { DeploymentSteps } from "@/Process"
 import { KeyFeatures } from "@/KeyFeatures"
 import Challenges from "@/Challenges"
 import Step123 from "@/Step123"
 import { InstallTerminal } from "@/Install"
-import PricingSection from "@/Pricing"
+import Pricing from "@/Pricing"
 import Stars2 from "./Stars2"
+import Form from "./Form"
 
 export default function App() {
   return (
@@ -24,21 +24,26 @@ export default function App() {
           <div className="container max-w-6xl mx-auto">
             <Step123 />
           </div>
-          {/* <div className="container max-w-6xl mx-auto">
-            <DeploymentSteps />
-          </div>
-          <div className="container max-w-6xl mx-auto">
-            <KeyFeatures />
-          </div>
           <div id="pricing" className="container max-w-6xl mx-auto">
-            <PricingSection />
+            <Pricing />
           </div>
-          <div className="container max-w-6xl mx-auto">
-          </div> */}
+
+          <div id="pricing" className="container max-w-6xl mx-auto">
+            <Form />
+          </div>
         </div>
 
         <Challenges />
-      </div>
+      </div >
     </>
   )
 }
+
+// <div className="container max-w-6xl mx-auto">
+//   <DeploymentSteps />
+// </div>
+// <div className="container max-w-6xl mx-auto">
+//   <KeyFeatures />
+// </div>
+// <div className="container max-w-6xl mx-auto">
+// </div>

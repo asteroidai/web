@@ -12,6 +12,10 @@ export const UserTypeSwitch: React.FC = React.memo(() => {
   const toggleSwitch = () => {
     setIsProductOwner(!isProductOwner)
     setUserType(!isProductOwner ? 'business' : 'developer')
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
   }
 
   return (
@@ -25,7 +29,7 @@ export const UserTypeSwitch: React.FC = React.memo(() => {
       }}
     >
       <motion.div
-        className="w-full h-full bg-white rounded-full shadow-md relative flex items-center"
+        className="w-full h-full bg-[#0A0A1F] rounded-full shadow-md relative flex items-center"
         animate={{
           x: isProductOwner ? "calc(100% - 100%)" : "0%",
         }}
@@ -33,12 +37,12 @@ export const UserTypeSwitch: React.FC = React.memo(() => {
       >
         <div className="absolute inset-0 flex items-center justify-between px-6">
           <span
-            className={`text-sm font-medium transition-colors select-none ${!isProductOwner ? "text-purple-600" : "text-gray-300"}`}
+            className={`text-sm font-medium transition-colors select-none ${!isProductOwner ? "text-purple-600" : "text-gray-600"}`}
           >
             I'm a developer
           </span>
           <span
-            className={`text-sm font-medium transition-colors select-none ${isProductOwner ? "text-gray-600" : "text-gray-300"}`}
+            className={`text-sm font-medium transition-colors select-none ${isProductOwner ? "text-white" : "text-gray-500"}`}
           >
             I'm a product owner
           </span>

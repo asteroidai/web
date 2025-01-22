@@ -4,138 +4,123 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import Page from './components/Page'
 import { Link } from 'react-router-dom'
 import MeetingButton from './MeetingButton'
+import { cn } from './lib/utils'
 const pricingPlans = [
   {
-    name: "Developer",
-    description: "Perfect for individual developers and testing",
+    name: "Builder",
+    description: "Perfect for developers and process owners getting started",
     price: "$0",
     period: "/month",
     features: [
-      "1,000 free agent runs per month",
-      "Python SDK",
-      "Web Supervision Control Center",
-      "Default & custom Python supervisors",
-      "Local supervision execution (BYO keys)",
+      "100 free agent runs monthly",
+      "Python SDK access",
+      "Web supervision dashboard",
+      "Basic monitoring tools",
       "Community Slack support",
     ],
     buttonText: "Get Started",
     buttonVariant: "default",
     buttonHref: "https://platform.asteroid.ai",
     highlighted: false,
+    logoSize: "w-12 h-12",
   },
   {
-    name: "Consultation",
-    description: "For teams looking for expert guidance",
+    name: "Startup",
+    description: "For growing teams",
     price: "Custom",
     period: "",
     features: [
-      "Consultation with an expert",
-      "Managed monitoring of your agent by us",
-      "Report the failure modes of your agent",
-      "Suggested fixes for the failure modes",
+      "Unlimited pay-as-you-go agent runs",
+      "Expert guidance building your agents",
+      "Intelligent Agent Safeguards",
+      "Performance optimization",
+      "Enterprise-grade support and SLAs",
     ],
     buttonText: "Contact Us",
     buttonVariant: "outline",
     buttonHref: "https://calendly.com/founders-asteroid-hhaf/30min",
     highlighted: false,
+    logoSize: "w-14 h-14",
   },
   {
-    name: "Premium",
-    description: "For growing teams and startups",
+    name: "Enterprise Design Partner",
+    description: "We're looking for innovative teams pushing the boundaries of web automation",
     price: "Custom",
     period: "",
     features: [
-      "All Developer features",
-      "Unlimited pay-as-you-go agent runs",
-      "Slack-based human supervision",
-      "Expert supervisor deployment help",
-      "Automated prompt optimization",
-      "Dedicated Slack support channel",
+      "Work directly with us to shape the future of browser automation",
+      "Shape the future of browser automation",
+      "Get features built for your specific needs",
+      "Receive considerable volume discounts",
+      "Weekly feedback and collaboration sessions",
+      "Enterprise-grade support and SLAs",
     ],
-    buttonText: "Contact Us",
+    buttonText: "Contact Us (limited spots)",
     buttonVariant: "primary",
     buttonHref: "https://calendly.com/founders-asteroid-hhaf/30min",
     highlighted: false,
-  },
-  {
-    name: "Enterprise",
-    description: "For large organizations",
-    price: "Custom",
-    period: "",
-    features: [
-      "All Premium features",
-      "Volume discounts on agent runs",
-      "Custom API-based supervision",
-      "Advanced edge case detection",
-      "Self-hosted deployment options",
-      "Dedicated support engineer with SLA",
-    ],
-    buttonText: "Contact Us",
-    buttonVariant: "outline",
-    buttonHref: "https://calendly.com/founders-asteroid-hhaf/30min",
-    highlighted: false,
+    logoSize: "w-16 h-16",
   }
 ]
 
-export default function PricingPage() {
+export default function Pricing() {
   return (
-    <Page className="relative">
-      <div className="relative z-10">
-        <div className="flex justify-center items-center mb-4">
-          <img
-            src="/logo-128-nobg.png"
-            alt="Asteroid Logo"
-            className="w-16 h-16 mb-4 transition-transform duration-700 ease-in-out hover:rotate-[360deg]"
-          />
-        </div>
-        <h1 className="text-4xl font-semibold mb-4 text-white">Pricing Plans</h1>
-        <p className="text-xl text-muted-foreground mb-12">Choose the perfect plan for your needs</p>
+    <div className="relative z-10">
+      <h1 className="text-4xl font-semibold mb-4 text-white">Pricing Plans</h1>
+      <p className="text-xl text-muted-foreground mb-12">Choose the perfect plan for your needs</p>
 
-        <div className="grid md:grid-cols-4 gap-8 w-full max-w-8xl mt-16">
-          {pricingPlans.map((plan) => (
-            <Card
-              key={plan.name}
-              className={`flex flex-col transition-all duration-300 ease-in-out bg-[#0A0A1F] border-none text-white
+      <div className="grid md:grid-cols-3 gap-8 w-full max-w-8xl mt-16">
+        {pricingPlans.map((plan) => (
+          <Card
+            key={plan.name}
+            className={`flex flex-col transition-all duration-300 ease-in-out bg-[#0A0A1F] border-none text-white group
                 ${plan.highlighted
-                  ? 'transform scale-105 shadow-[0_0_30px_rgba(255,255,255,0.15)] border-primary hover:-translate-y-4 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)]'
-                  : 'hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] shadow-[0_0_20px_rgba(255,255,255,0.08)]'
-                }`}
-            >
-              <CardHeader>
-                <CardTitle className="text-2xl flex items-center justify-center text-white">
-                  {plan.name}
-                  {plan.highlighted && <Zap className="ml-2 h-5 w-5 text-primary" />}
-                </CardTitle>
-                <CardDescription className="text-center text-gray-400">{plan.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <p className="text-4xl font-bold mb-4 text-white">
-                  {plan.price}
-                  <span className="text-xl font-normal text-gray-400">{plan.period}</span>
-                </p>
-                <ul className="space-y-2">
-                  {plan.features.map((feature, index) => (
-                    <li key={index} className="flex items-center text-gray-300 text-left">
-                      <Check className="mr-2 h-5 w-5 text-indigo-500 flex-shrink-0" />
-                      <span className="text-left">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-              <CardFooter className="flex justify-end">
-                <Link to={plan.buttonHref}>
-                  <MeetingButton
-                    size="lg"
-                    text={plan.buttonText}
-                    href={plan.buttonHref}
-                  />
-                </Link>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
+                ? 'transform scale-105 shadow-[0_0_30px_rgba(255,255,255,0.15)] border-primary hover:-translate-y-4 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)]'
+                : 'hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] shadow-[0_0_20px_rgba(255,255,255,0.08)]'
+              }`}
+          >
+            <CardHeader>
+              <div className="flex justify-center items-center mb-4">
+                <img
+                  src="/logo-128-nobg.png"
+                  alt="Asteroid Logo"
+                  className={cn(plan.logoSize, "mb-4 transition-transform duration-700 ease-in-out group-hover:rotate-[360deg]")}
+                />
+              </div>
+              <CardTitle className="text-2xl flex items-center justify-start text-white">
+                {plan.name}
+                {plan.highlighted && <Zap className="ml-2 h-5 w-5 text-primary" />}
+              </CardTitle>
+              <CardDescription className="text-left text-gray-400">{plan.description}</CardDescription>
+            </CardHeader>
+            <CardContent className="flex-grow">
+              <p className="text-4xl font-bold mb-4 text-white">
+                {plan.price}
+                <span className="text-xl font-normal text-gray-400">{plan.period}</span>
+              </p>
+              <ul className="space-y-2">
+                {plan.features.map((feature, index) => (
+                  <li key={index} className="flex items-center text-gray-300 text-left">
+                    <Check className="mr-2 h-5 w-5 text-indigo-500 flex-shrink-0" />
+                    <span className="text-left">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+            <CardFooter className="flex justify-end">
+              <Link to={plan.buttonHref}>
+                <MeetingButton
+                  size="lg"
+                  text={plan.buttonText}
+                  href={plan.buttonHref}
+
+                />
+              </Link>
+            </CardFooter>
+          </Card>
+        ))}
       </div>
-    </Page>
+    </div>
   )
 }
 

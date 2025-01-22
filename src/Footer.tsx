@@ -163,9 +163,13 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-white/10">
-          <p className="text-center text-sm text-white/60">
-            © {new Date().getFullYear()} Entropy Systems, Inc. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-sm text-white/60">
+            <p>© {new Date().getFullYear()} Entropy Systems, Inc. All rights reserved.</p>
+            <div className="flex gap-4">
+              <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

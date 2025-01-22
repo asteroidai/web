@@ -7,6 +7,7 @@ import Footer from '@/Footer';
 import PrivacyPolicy from '@/PrivacyPolicy';
 import Terms from '@/Terms';
 import NotFound from '@/NotFound';
+import { Toaster } from '@/components/ui/toaster'
 
 import App from '@/App'
 import { UserProvider } from '@/contexts/UserContext';
@@ -29,6 +30,7 @@ if (rootElement) {
             </main>
             <Footer />
           </div>
+          <Toaster />
         </BrowserRouter>
       </UserProvider>
     </React.StrictMode>,

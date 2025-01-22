@@ -32,7 +32,7 @@ interface Content {
 
 const developContent: Content = {
   title: "Build and orchestrate your AI browser workforce",
-  subtitle: "Invoke with a single API call, and let us handle the rest",
+  subtitle: "Invoke with a single API call, and let us handle the rest.",
   integrationCode: `
 # Initialize Asteroid
 run_id = asteroid_init()

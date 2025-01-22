@@ -33,11 +33,17 @@ export default function Hero() {
             className="flex items-center justify-center gap-3 text-gray-400"
           >
             <span className=" pb-[4px] mr-[-5px] text-gray-600">backed by</span>
-            <img
-              src="/yc.png"
-              alt="Y Combinator"
-              className="h-8"
-            />
+            <a
+              href="https://www.ycombinator.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/yc.png"
+                alt="Y Combinator"
+                className="h-8"
+              />
+            </a>
           </motion.div>
         </div>
         <div className="space-y-24">
