@@ -55,7 +55,7 @@ const pricingPlans = [
       "Weekly feedback and collaboration sessions",
       "Enterprise-grade support and SLAs",
     ],
-    buttonText: "Contact Us (limited spots)",
+    buttonText: "Partner (Limited Availability)",
     buttonVariant: "primary",
     buttonHref: "https://calendly.com/founders-asteroid-hhaf/30min",
     highlighted: true,

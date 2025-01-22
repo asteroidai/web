@@ -24,15 +24,18 @@ export default function MeetingButton({
         size={size}
         className={cn(
           "bg-transparent border border-2 border-indigo-500/50 text-indigo-500 hover:bg-indigo-500/10 hover:text-indigo-500",
-          // "relative group",
-          // "before:absolute before:inset-0 before:rounded-md before:bg-gradient-to-r before:from-indigo-500 before:to-purple-500",
-          // "before:opacity-10",
-          // "bg-gradient-to-r from-indigo-500 to-purple-500",
-          // "border border-indigo-500/50",
-          // "transition-all duration-300",
-          // "hover:scale-105 active:scale-95",
-          // "shadow-lg shadow-indigo-500/25",
-          // "overflow-hidden"
+          solid && [
+            "bg-indigo-500 text-white hover:bg-indigo-600",
+            "relative group",
+            "before:absolute before:inset-0 before:rounded-md before:bg-gradient-to-r before:from-indigo-500 before:to-purple-500",
+            "before:opacity-10",
+            "bg-gradient-to-r from-indigo-500 to-purple-500",
+            "border border-indigo-500/50",
+            "transition-all duration-300",
+            "hover:scale-105 active:scale-95",
+            "shadow-lg shadow-indigo-500/25",
+            "overflow-hidden"
+          ]
         )}
       >
         <span className="relative z-10 flex items-center font-semibold tracking-wide">
