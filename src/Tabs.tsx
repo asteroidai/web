@@ -5,6 +5,7 @@ import { Box, BarChart2, History, ToggleLeft, Swords } from "lucide-react"
 import Terminal from './Terminal'
 import { UserContext } from './contexts/UserContext'
 import { cn } from './lib/utils'
+import { motion, AnimatePresence } from "framer-motion"
 
 const tabData = [
   {
@@ -20,7 +21,7 @@ const tabData = [
     icon: <BarChart2 className="w-4 h-4" />,
     content: "Dive deep into your data with our powerful analytics tools.",
     code: "console.log('Hello, world!')",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "https://images.unsplash.com/photo-1518791841217-8cc77978b23a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     color: "blue"
   },
   {
@@ -28,7 +29,7 @@ const tabData = [
     icon: <History className="w-4 h-4" />,
     content: "Generate and export detailed reports for your business needs.",
     code: "console.log('Hello, world!')",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "https://images.unsplash.com/photo-1518791841217-8cc77978b23a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     color: "sky"
   },
   {
@@ -36,7 +37,7 @@ const tabData = [
     icon: <ToggleLeft className="w-4 h-4" />,
     content: "Customize your experience with our flexible settings options.",
     code: "console.log('Hello, world!')",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "https://images.unsplash.com/photo-1518791841217-8cc77978b23a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     color: "amber"
   },
   {
@@ -44,7 +45,7 @@ const tabData = [
     icon: <Swords className="w-4 h-4" />,
     content: "Get assistance and answers to your questions in our help center.",
     code: "console.log('Hello, world!')",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "https://images.unsplash.com/photo-1518791841217-8cc77978b23a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     color: "green"
   },
 ]
@@ -91,20 +92,39 @@ export default function TabsWithContent() {
 
 function ContentSection({ content, image, code }: { content: string; image: string; code: string }) {
   return (
-    <div className="flex flex-col md:flex-row gap-6">
-      <div className="flex-1">
-        <Terminal code={code} allowClose={true} width={'full'} />
-      </div>
-      <div className="flex-1">
-        <img
-          src={image || "/placeholder.svg"}
-          alt="Screenshot"
-          width={400}
-          height={400}
-          className="w-full h-auto rounded-lg shadow-md"
-        />
-      </div>
-    </div>
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={content}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="flex flex-col md:flex-row gap-6"
+      >
+        <motion.div
+          className="flex-1"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
+        >
+          <Terminal code={code} allowClose={true} width={'full'} />
+        </motion.div>
+        <motion.div
+          className="flex-1"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
+        >
+          <img
+            src={image}
+            alt="Screenshot"
+            width={400}
+            height={400}
+            className="w-full h-auto rounded-lg shadow-md"
+          />
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
   )
 }
 

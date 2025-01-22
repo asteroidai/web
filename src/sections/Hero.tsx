@@ -27,7 +27,7 @@ export default function Hero() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-16">
 
         {/* Title */}
-        <div className="">
+        <div className="max-w-2xl mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight font-thin text-white tracking-wide">
             {/* {content.title} */}
             Build and <span className="font-semibold">orchestrate</span> your AI browser <span className="font-semibold">workforce</span>
@@ -39,7 +39,7 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="text-base sm:text-lg lg:text-xl mb-12 text-gray-400 max-w-3xl mx-auto"
+          className="text-base sm:text-lg lg:text-xl mb-12 text-gray-400 max-w-2xl mx-auto"
         >
           <p className="text-lg sm:text-xl lg:text-2xl mb-8 text-gray-400 tracking-wide">
             {content.subtitle}
