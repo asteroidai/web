@@ -34,7 +34,7 @@ export default function Step123() {
             <p className="text-lg text-left text-gray-600">Import the SDK and make a single API call</p>
           </div>
           <div className="flex flex-col items-center justify-center w-full h-full">
-            <Terminal code={content.integrationCode} allowClose={false} width={'full'} />
+            <Terminal code={content.integrationCode} allowClose={true} width={'full'} />
           </div>
         </div>
       )}

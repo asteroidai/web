@@ -8,12 +8,14 @@ type MeetingButtonProps = {
   size?: "sm" | "lg"
   text?: string
   href?: string
+  solid?: boolean
 }
 
 export default function MeetingButton({
   size = "sm",
   text = "Book a demo",
-  href = "https://calendly.com/founders-asteroid-hhaf/30min"
+  href = "https://calendly.com/founders-asteroid-hhaf/30min",
+  solid = false
 }: MeetingButtonProps) {
   return (
     <Link to={href}>

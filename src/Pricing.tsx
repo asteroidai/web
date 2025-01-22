@@ -58,7 +58,7 @@ const pricingPlans = [
     buttonText: "Contact Us (limited spots)",
     buttonVariant: "primary",
     buttonHref: "https://calendly.com/founders-asteroid-hhaf/30min",
-    highlighted: false,
+    highlighted: true,
     logoSize: "w-16 h-16",
   }
 ]
@@ -87,7 +87,7 @@ export default function Pricing() {
                   className={cn(plan.logoSize, "mb-4 transition-transform duration-700 ease-in-out group-hover:rotate-[360deg]")}
                 />
               </div>
-              <CardTitle className="text-2xl flex items-center justify-start text-white">
+              <CardTitle className={cn("text-2xl flex items-center justify-start text-white text-indigo-500")}>
                 {plan.name}
                 {plan.highlighted && <Zap className="ml-2 h-5 w-5 text-primary" />}
               </CardTitle>
@@ -111,9 +111,9 @@ export default function Pricing() {
               <Link to={plan.buttonHref}>
                 <MeetingButton
                   size="lg"
+                  solid={plan.highlighted}
                   text={plan.buttonText}
                   href={plan.buttonHref}
-
                 />
               </Link>
             </CardFooter>
