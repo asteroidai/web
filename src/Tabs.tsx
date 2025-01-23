@@ -25,7 +25,7 @@ export default function TabsWithContent() {
             Autonomous Learning
           </TabTrigger>
           <TabTrigger value="four" icon={<ToggleLeft className="w-4 h-4" />}>
-            Intelligence Guardrails
+            Intelligent Guardrails
           </TabTrigger>
           <TabTrigger value="five" icon={<Swords className="w-4 h-4" />}>
             Massively scalable
@@ -267,12 +267,11 @@ function MassivelyScalableContent() {
         </div>
 
         <div className="bg-transparent transparent rounded-lg p-6 backdrop-blur-sm">
-          <h3 className="text-lg font-semibold mb-4 text-indigo-400">Powered by enterprise-grade tech</h3>
+          <h3 className="text-lg font-semibold mb-4 text-indigo-400">Built to scale</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <TechItem icon={<img src="/tech/icons8-golang-96.svg" alt="Go" className="w-8 h-8" />} name="Go" />
             <TechItem icon={<img src="/tech/icons8-kubernetes-96.svg" alt="Kubernetes" className="w-8 h-8" />} name="Kubernetes" />
-            <TechItem icon={<img src="/tech/browserbasehq_logo.jpg" alt="Browserbase" className="w-8 h-8 rounded" />} name="Browserbase" />
-            <TechItem icon={<img src="/tech/icons8-chatgpt-100.svg" alt="ChatGPT" className="w-8 h-8 brightness-0 invert" />} name="ChatGPT" />
+            <TechItem icon={<img src="/tech/OpenTelemetry.svg" alt="OpenTelemetry" className="w-8 h-8" />} name="OpenTelemetry" />
           </div>
         </div>
       </div>

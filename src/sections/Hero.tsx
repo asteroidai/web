@@ -69,25 +69,39 @@ export default function Hero() {
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden text-white/70 py-12">
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-16">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
 
-        {/* Title */}
-        <div className="max-w-3xl mx-auto">
-          <h1 className="sm:text-5xl md:text-6xl lg:text-7xl tracking-tight font-thin text-white tracking-wide">
-            {/* {content.title} */}
-            Build and <span className="font-semibold">orchestrate</span> your AI browser <span className="font-semibold">workforce</span>
-          </h1>
+        <div className="flex flex-col items-center justify-center gap-6">
+          {/* Title */}
+          <div className="max-w-3xl mx-auto">
+            <h1 className="sm:text-5xl md:text-6xl lg:text-7xl tracking-tight font-thin text-white tracking-wide">
+              {/* {content.title} */}
+              {/* Unleash your agentic browser workforce */}
+              {/* Browser agents that actually work */}
+              Mission critical browser agents at scale
+            </h1>
+          </div>
+          {/* Subheader */}
+          <div className="max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl lg:text-2xl text-gray-400 tracking-wide">
+              {/* The fastest way to build browser automations that actually work */}
+              Automate previously impossible workflows on the web,
+              <br />
+              In one line of code.
+
+            </p>
+          </div>
+
+          {/* Subtitle */}
+          {/* <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className="mb-12"
+          >
+            <TypingSubtitle />
+          </motion.div> */}
         </div>
-
-        {/* Subtitle */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-          className="mb-12"
-        >
-          <TypingSubtitle />
-        </motion.div>
 
         <DemoButton />
 
