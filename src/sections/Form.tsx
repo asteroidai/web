@@ -67,7 +67,7 @@ export default function Form() {
     >
       <div className="flex gap-2 w-[70%] mx-auto">
         <Input
-          placeholder="I need an agent to automate text input in insurance portals"
+          placeholder="I need an agent to automate text input across 315 Scandinavian insurance portals"
           value={userQuery}
           onChange={(e) => setUserQuery(e.target.value)}
           className="bg-white/5 border-white/10 text-white"

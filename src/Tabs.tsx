@@ -36,34 +36,39 @@ export default function TabsWithContent() {
   }
 
   return (
-    <div className="w-full mx-auto py-6">
-      <Tabs value={activeTab} onValueChange={handleTabChange}>
-        <TabsList className="flex flex-col md:flex-row w-full min-h-12 bg-transparent gap-2 md:gap-4 overflow-y-auto md:overflow-x-auto">
-          <TabTrigger value="one" icon={<Box className="w-4 h-4" />}>
-            Two line integration
-          </TabTrigger>
-          <TabTrigger value="two" icon={<BarChart2 className="w-4 h-4" />}>
-            Human in the loop
-          </TabTrigger>
-          <TabTrigger value="three" icon={<History className="w-4 h-4" />}>
-            Autonomous Learning
-          </TabTrigger>
-          <TabTrigger value="four" icon={<ToggleLeft className="w-4 h-4" />}>
-            Intelligent Guardrails
-          </TabTrigger>
-          <TabTrigger value="five" icon={<Swords className="w-4 h-4" />}>
-            Massively scalable
-          </TabTrigger>
-        </TabsList>
-      </Tabs>
-      <div className="mt-6">
-        <AnimatePresence mode="wait">
-          {activeTab === "one" && <OneLineIntegrationContent />}
-          {activeTab === "two" && <HumanInTheLoopContent />}
-          {activeTab === "three" && <AutonomousLearningContent />}
-          {activeTab === "four" && <IntelligenceGuardrailsContent />}
-          {activeTab === "five" && <MassivelyScalableContent />}
-        </AnimatePresence>
+    <div className="w-full mx-auto pt-12 md:pt-0">
+      <div className="space-y-16 md:space-y-6">
+        <div className="px-4 md:px-0 py-12 md:py-0">
+          <Tabs value={activeTab} onValueChange={handleTabChange}>
+            <TabsList className="flex flex-col md:flex-row w-full min-h-12 bg-transparent gap-4 md:gap-4">
+              <TabTrigger value="one" icon={<Box className="w-4 h-4" />}>
+                Two line integration
+              </TabTrigger>
+              <TabTrigger value="two" icon={<BarChart2 className="w-4 h-4" />}>
+                Human in the loop
+              </TabTrigger>
+              <TabTrigger value="three" icon={<History className="w-4 h-4" />}>
+                Autonomous Learning
+              </TabTrigger>
+              <TabTrigger value="four" icon={<ToggleLeft className="w-4 h-4" />}>
+                Intelligent Guardrails
+              </TabTrigger>
+              <TabTrigger value="five" icon={<Swords className="w-4 h-4" />}>
+                Massively scalable
+              </TabTrigger>
+            </TabsList>
+          </Tabs>
+        </div>
+
+        <div className="min-h-[600px] px-4 md:px-0">
+          <AnimatePresence mode="wait">
+            {activeTab === "one" && <OneLineIntegrationContent />}
+            {activeTab === "two" && <HumanInTheLoopContent />}
+            {activeTab === "three" && <AutonomousLearningContent />}
+            {activeTab === "four" && <IntelligenceGuardrailsContent />}
+            {activeTab === "five" && <MassivelyScalableContent />}
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   )
@@ -74,7 +79,7 @@ function TabTrigger({ value, icon, children }: { value: string; icon: React.Reac
     <TabsTrigger
       value={value}
       className={cn(
-        "flex items-center gap-2 px-4 py-2 rounded-lg",
+        "flex items-center gap-2 px-4 py-2 rounded-lg w-full md:w-auto",
         "text-gray-400 bg-transparent border-b-0 relative",
         "hover:bg-[#1a1c2e] hover:text-white",
         "hover:after:content-[''] hover:after:absolute hover:after:left-0",
@@ -126,7 +131,7 @@ from asteroid_sdk import web_task
 result = web_task.run(
   f"Update details for our 50 real estate listings ...", 
   workflow_id="real_estate_listings"
-)
+U)
         `} allowClose={true} />
       </div>
       <div className="text-gray-400">
@@ -152,28 +157,6 @@ result = web_task.run(
 function HumanInTheLoopContent() {
   return (
     <div className="flex flex-col gap-6 text-gray-400">
-      <ContentWrapper title="Maintain high accuracy, and still scale">
-        <div className="flex-1 py-6">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-        </div>
-        <BulletPointGradient>
-          <ul className="space-y-4">
-            <li className="flex items-center gap-2">
-              <Bell className="w-5 h-5 text-indigo-500" />
-              <span className="text-lg">Get instant alerts for uncertain situations</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-indigo-500" />
-              <span className="text-lg">Review and approve agent actions in real-time</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Video className="w-5 h-5 text-indigo-500" />
-              <span className="text-lg">Access full session recordings for oversight</span>
-            </li>
-          </ul>
-        </BulletPointGradient>
-      </ContentWrapper>
-
       <ContentWrapper>
         <motion.div
           className="flex-1"
@@ -188,15 +171,31 @@ function HumanInTheLoopContent() {
           />
         </motion.div>
         <motion.div
-          className="flex-1"
+          className="flex-1 flex-col gap-4"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3, delay: 0.1 }}
         >
+          <BulletPointGradient l2r={true}>
+            <ul className="space-y-4">
+              <li className="flex items-center gap-2">
+                <Bell className="w-5 h-5 text-indigo-500" />
+                <span className="text-lg">Get instant alerts for uncertain situations</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-indigo-500" />
+                <span className="text-lg">Review and approve agent actions in real-time</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Video className="w-5 h-5 text-indigo-500" />
+                <span className="text-lg">Access full session recordings for oversight</span>
+              </li>
+            </ul>
+          </BulletPointGradient>
           <img
             src="/features/inlinereview.png"
             alt="Screenshot"
-            className="w-auto h-auto rounded-lg shadow-md"
+            className="w-auto mt-4 h-auto rounded-lg shadow-md"
           />
         </motion.div>
       </ContentWrapper>
@@ -224,9 +223,6 @@ function AutonomousLearningContent() {
             </li>
           </ul>
         </BulletPointGradient>
-        <div className="max-w-3xl">
-          Our autonomous agents learn from every interaction, continuously improving their ability to handle complex workflows. They automatically adapt to website changes and new scenarios, reducing maintenance overhead and improving reliability over time.
-        </div>
       </div>
       <motion.div
         className="flex flex-col gap-4"
@@ -272,9 +268,6 @@ function IntelligenceGuardrailsContent() {
             </li>
           </ul>
         </BulletPointGradient>
-        <div className="max-w-xl">
-          Our intelligent guardrails provide a robust safety framework, ensuring your automations stay within defined boundaries while maintaining maximum flexibility and efficiency.
-        </div>
       </div>
     </ContentWrapper>
   )

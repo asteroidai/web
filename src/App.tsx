@@ -16,7 +16,7 @@ export default function App() {
       <Hero />
 
       {/* Main content */}
-      <div className="relative w-full flex flex-col space-y-24 md:space-y-48 lg:space-y-64 pt-32">
+      <div className="relative w-full flex flex-col space-y-32 md:space-y-48 lg:space-y-64 pt-32">
         <Step123 />
         <Pricing />
         <Form />
