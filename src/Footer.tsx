@@ -9,6 +9,7 @@ import {
   MailIcon,
   CalendarIcon,
   DollarSignIcon,
+  HomeIcon,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -29,6 +30,20 @@ const iconVariants = {
   }
 }
 
+
+// Helper function for smooth scrolling
+const scrollToPricing = (e: React.MouseEvent) => {
+  e.preventDefault()
+  const pricingSection = document.getElementById('pricing')
+  pricingSection?.scrollIntoView({ behavior: 'smooth' })
+}
+
+// Helper function for smooth scrolling
+const scrollToTop = (e: React.MouseEvent) => {
+  e.preventDefault()
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
 const socialLinks = [
   {
     name: "X",
@@ -40,10 +55,13 @@ const socialLinks = [
 ]
 
 const resourceLinks = [
+  { name: "Home", href: "/", icon: HomeIcon, onClick: scrollToTop },
   { name: "Documentation", href: "https://docs.asteroid.ai", icon: BookIcon },
   { name: "Blog", href: "https://blog.asteroid.ai", icon: LibraryIcon },
   { name: "Contact", href: "mailto:founders@asteroid.ai", icon: MailIcon },
-  { name: "Pricing", href: "/pricing", icon: DollarSignIcon },
+  {
+    name: "Pricing", href: "#pricing", icon: DollarSignIcon, onClick: scrollToPricing
+  },
   { name: "Demo", href: "https://calendly.com/founders-asteroid-hhaf/30min", icon: CalendarIcon },
 ]
 
@@ -52,7 +70,8 @@ export default function Footer() {
   const [title, setTitle] = useState('')
   const [text, setText] = useState('')
 
-  const onSubmit = (_: React.MouseEvent<HTMLButtonElement>) => {
+  const onSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     if (!email || !email.includes('@') || !email.includes('.')) {
       setTitle('Something went wrong!')
       setText('Please enter a valid email address.')
@@ -120,7 +139,6 @@ export default function Footer() {
                   variants={iconVariants}
                 >
                   <link.icon className="h-4 w-4" />
-                  <span className="ml-2">{link.name}</span>
                 </FooterLink>
               ))}
             </div>
@@ -163,9 +181,13 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-white/10">
-          <p className="text-center text-sm text-white/60">
-            © {new Date().getFullYear()} Entropy Systems, Inc. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-sm text-white/60">
+            <p>© {new Date().getFullYear()} Entropy Systems, Inc. All rights reserved.</p>
+            <div className="flex gap-4">
+              <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

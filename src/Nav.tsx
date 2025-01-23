@@ -1,6 +1,6 @@
 import * as React from "react"
 import { motion } from "framer-motion"
-import { MenuIcon, Slack, GithubIcon, BookIcon, LibraryIcon, CalendarIcon, ArrowRight, DollarSignIcon } from 'lucide-react'
+import { MenuIcon, Slack, GithubIcon, BookIcon, LibraryIcon, DollarSignIcon } from 'lucide-react'
 import { cn } from "@/lib/utils"
 import { Link, useLocation } from "react-router-dom"
 import {
@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import MeetingButton from "./MeetingButton"
+import { DemoButton } from "./DemoButton"
 
 const NavLink = motion(Link)
 
@@ -34,7 +35,14 @@ const iconMotionProps = {
 const scrollToPricing = (e: React.MouseEvent) => {
   e.preventDefault()
   const pricingSection = document.getElementById('pricing')
-  pricingSection?.scrollIntoView({ behavior: 'smooth' })
+  if (pricingSection) {
+    const offset = window.innerHeight * 0.20 // 20% of viewport height
+    const elementPosition = pricingSection.getBoundingClientRect().top + window.scrollY
+    window.scrollTo({
+      top: elementPosition - offset,
+      behavior: 'smooth'
+    })
+  }
 }
 
 // Helper function for smooth scrolling
@@ -64,7 +72,7 @@ const socialItems = [
 ]
 
 // Reusable components
-const SocialButton = ({ icon: Icon, href, label }: { icon: any, href: string, label: string }) => (
+const SocialButton = ({ icon: Icon, href, label }: { icon: React.ElementType, href: string, label: string }) => (
   <motion.div initial="initial" animate="animate" whileHover="hover" variants={navItemVariants}>
     <Link to={href} target="_blank" rel="noopener noreferrer">
       <Button variant="ghost" size="icon" className="bg-transparent text-white hover:text-white/80 hover:bg-transparent">
@@ -154,8 +162,8 @@ export default function Nav() {
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-3 bg-non backdrop-blur-sm">
       <div className="container mx-auto flex items-center justify-between">
         <p className="text-2xl font-['Source_Serif_4'] font-bold text-white">
-          <Link to="/" onClick={scrollToTop}>
-            Asteroid
+          <Link to="/" onClick={scrollToTop} className="flex items-center gap-2">
+            <span className="">Asteroid</span>
           </Link>
         </p>
 
@@ -215,12 +223,13 @@ export default function Nav() {
           </SheetContent>
         </Sheet>
 
+
         {/* Conditional CTA Button */}
         <div className={cn(
           "transition-all duration-300",
           showCTA ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
         )}>
-          <MeetingButton />
+          <MeetingButton solid />
         </div>
       </div>
     </nav>

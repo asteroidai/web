@@ -1,4 +1,3 @@
-import Stars from '@/Stars';
 import * as React from 'react';
 
 interface PageProps {
@@ -9,7 +8,6 @@ interface PageProps {
 const Page: React.FC<PageProps> = ({ children, className = '' }) => {
   return (
     <div className={`flex flex-col items-center justify-center min-h-screen text-center px-4 ${className}`}>
-      <Stars />
       {children}
     </div>
   );
