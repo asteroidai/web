@@ -128,7 +128,7 @@ from asteroid_sdk import web_task
 result = web_task.run(
   f"Update details for our 50 real estate listings ...", 
   workflow_id="real_estate_listings"
-)
+U)
         `} allowClose={true} />
       </div>
       <div className="text-gray-400">
@@ -155,22 +155,6 @@ function HumanInTheLoopContent() {
   return (
     <div className="flex flex-col gap-6 text-gray-400">
       <ContentWrapper title="Maintain high accuracy, and still scale">
-        <BulletPointGradient>
-          <ul className="space-y-4">
-            <li className="flex items-center gap-2">
-              <Bell className="w-5 h-5 text-indigo-500" />
-              <span className="text-lg">Get instant alerts for uncertain situations</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-indigo-500" />
-              <span className="text-lg">Review and approve agent actions in real-time</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Video className="w-5 h-5 text-indigo-500" />
-              <span className="text-lg">Access full session recordings for oversight</span>
-            </li>
-          </ul>
-        </BulletPointGradient>
       </ContentWrapper>
 
       <ContentWrapper>
@@ -187,15 +171,31 @@ function HumanInTheLoopContent() {
           />
         </motion.div>
         <motion.div
-          className="flex-1"
+          className="flex-1 flex-col gap-4"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3, delay: 0.1 }}
         >
+          <BulletPointGradient l2r={true}>
+            <ul className="space-y-4">
+              <li className="flex items-center gap-2">
+                <Bell className="w-5 h-5 text-indigo-500" />
+                <span className="text-lg">Get instant alerts for uncertain situations</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-indigo-500" />
+                <span className="text-lg">Review and approve agent actions in real-time</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Video className="w-5 h-5 text-indigo-500" />
+                <span className="text-lg">Access full session recordings for oversight</span>
+              </li>
+            </ul>
+          </BulletPointGradient>
           <img
             src="/features/inlinereview.png"
             alt="Screenshot"
-            className="w-auto h-auto rounded-lg shadow-md"
+            className="w-auto mt-4 h-auto rounded-lg shadow-md"
           />
         </motion.div>
       </ContentWrapper>
@@ -223,9 +223,6 @@ function AutonomousLearningContent() {
             </li>
           </ul>
         </BulletPointGradient>
-        <div className="max-w-3xl">
-          Our autonomous agents learn from every interaction, continuously improving their ability to handle complex workflows. They automatically adapt to website changes and new scenarios, reducing maintenance overhead and improving reliability over time.
-        </div>
       </div>
       <motion.div
         className="flex flex-col gap-4"
@@ -271,9 +268,6 @@ function IntelligenceGuardrailsContent() {
             </li>
           </ul>
         </BulletPointGradient>
-        <div className="max-w-xl">
-          Our intelligent guardrails provide a robust safety framework, ensuring your automations stay within defined boundaries while maintaining maximum flexibility and efficiency.
-        </div>
       </div>
     </ContentWrapper>
   )
