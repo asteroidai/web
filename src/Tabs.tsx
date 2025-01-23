@@ -7,13 +7,37 @@ import { UserContext } from './contexts/UserContext'
 import { cn } from './lib/utils'
 import { motion, AnimatePresence } from "framer-motion"
 import { Image } from './Image'
+
 export default function TabsWithContent() {
   const [activeTab, setActiveTab] = useState("one")
+  const [autoRotate, setAutoRotate] = useState(true)
   const { content } = useContext(UserContext)
+
+  const tabs = ["one", "two", "three", "four", "five"]
+
+  // Auto rotate tabs
+  React.useEffect(() => {
+    if (!autoRotate) return;
+
+    const interval = setInterval(() => {
+      setActiveTab(current => {
+        const currentIndex = tabs.indexOf(current)
+        return tabs[(currentIndex + 1) % tabs.length]
+      })
+    }, 5000) // Rotate every 5 seconds
+
+    return () => clearInterval(interval)
+  }, [autoRotate])
+
+  // Handle manual tab changes
+  const handleTabChange = (value: string) => {
+    setAutoRotate(false) // Stop auto-rotation when user clicks
+    setActiveTab(value)
+  }
 
   return (
     <div className="w-full mx-auto py-6">
-      <Tabs value={activeTab} onValueChange={setActiveTab}>
+      <Tabs value={activeTab} onValueChange={handleTabChange}>
         <TabsList className="flex flex-col md:flex-row w-full min-h-12 bg-transparent gap-2 md:gap-4 overflow-y-auto md:overflow-x-auto">
           <TabTrigger value="one" icon={<Box className="w-4 h-4" />}>
             Two line integration
@@ -71,23 +95,30 @@ function TabTrigger({ value, icon, children }: { value: string; icon: React.Reac
 }
 
 // Base content wrapper with animations
-function ContentWrapper({ children }: { children: React.ReactNode }) {
+function ContentWrapper({ children, title }: { children: React.ReactNode, title?: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="flex flex-col md:flex-row gap-6"
+      className="flex flex-col w-full pt-8 gap-8"
     >
-      {children}
+      {title && (
+        <div className="text-center">
+          <h1 className="text-xl text-indigo-400">{title}</h1>
+        </div>
+      )}
+      <div className="flex flex-col md:flex-row gap-6">
+        {children}
+      </div>
     </motion.div>
   )
 }
 
 function OneLineIntegrationContent() {
   return (
-    <ContentWrapper>
+    <ContentWrapper title="Deploy automation in minutes, not weeks">
       <div className="flex flex-col gap-4 h-96 w-128">
         <Terminal code={`
 from asteroid_sdk import web_task
@@ -121,7 +152,7 @@ result = web_task.run(
 function HumanInTheLoopContent() {
   return (
     <div className="flex flex-col gap-6 text-gray-400">
-      <ContentWrapper>
+      <ContentWrapper title="Maintain high accuracy, and still scale">
         <div className="flex-1 py-6">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
         </div>
@@ -175,7 +206,7 @@ function HumanInTheLoopContent() {
 
 function AutonomousLearningContent() {
   return (
-    <ContentWrapper>
+    <ContentWrapper title="Complex workflows, automated without programming">
       <div className="text-gray-400 flex flex-col gap-8">
         <BulletPointGradient l2r={true}>
           <ul className="space-y-4">
@@ -215,7 +246,7 @@ function AutonomousLearningContent() {
 
 function IntelligenceGuardrailsContent() {
   return (
-    <ContentWrapper>
+    <ContentWrapper title="Prevent costly mistakes on mission critical workflows">
       <motion.div
         className="flex-1"
         initial={{ opacity: 0, x: 20 }}
@@ -251,7 +282,7 @@ function IntelligenceGuardrailsContent() {
 
 function MassivelyScalableContent() {
   return (
-    <ContentWrapper>
+    <ContentWrapper title="Scale massively, outsource the headache">
       <div className="text-gray-400 flex flex-col gap-8">
         <div className="bg-gradient-to-bl from-indigo-500/10 via-purple-500/5 to-transparent p-6 rounded-lg backdrop-blur-sm">
           <ul className="space-y-6">
