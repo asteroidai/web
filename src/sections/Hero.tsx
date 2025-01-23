@@ -74,7 +74,7 @@ export default function Hero() {
         <div className="flex flex-col items-center justify-center gap-6">
           {/* Title */}
           <div className="max-w-3xl mx-auto">
-            <h1 className="sm:text-5xl md:text-6xl lg:text-7xl tracking-tight font-thin text-white tracking-wide">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl tracking-tight font-thin text-white tracking-wide">
               {/* {content.title} */}
               {/* Unleash your agentic browser workforce */}
               {/* Browser agents that actually work */}
