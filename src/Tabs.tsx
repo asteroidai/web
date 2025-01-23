@@ -124,7 +124,7 @@ function ContentWrapper({ children, title }: { children: React.ReactNode, title?
 function OneLineIntegrationContent() {
   return (
     <ContentWrapper title="Deploy automation in minutes, not weeks">
-      <div className="flex flex-col gap-4 h-96 w-128">
+      <div className="flex flex-col gap-4 h-96 w-full md:w-128">
         <Terminal code={`
 from asteroid_sdk import web_task
 
