@@ -154,9 +154,6 @@ U)
 function HumanInTheLoopContent() {
   return (
     <div className="flex flex-col gap-6 text-gray-400">
-      <ContentWrapper title="Maintain high accuracy, and still scale">
-      </ContentWrapper>
-
       <ContentWrapper>
         <motion.div
           className="flex-1"
