@@ -41,7 +41,7 @@ export default function Challenges() {
   ]
 
   return (
-    <section ref={containerRef} className="text-white pb-64">
+    <section ref={containerRef} className="px-6 text-white pb-64">
       <div className="text-center rounded-3xl backdrop-blur-sm space-y-4">
         <h2 className="text-3xl font-thin text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 ">
           <span className="font-['Source_Serif_4'] font-bold">Asteroid</span> is building the foundation for an agent-based future.

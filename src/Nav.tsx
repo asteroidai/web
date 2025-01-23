@@ -1,6 +1,6 @@
 import * as React from "react"
 import { motion } from "framer-motion"
-import { MenuIcon, Slack, GithubIcon, BookIcon, LibraryIcon, DollarSignIcon } from 'lucide-react'
+import { MenuIcon, Slack, GithubIcon, BookIcon, LibraryIcon, DollarSignIcon, X } from 'lucide-react'
 import { cn } from "@/lib/utils"
 import { Link, useLocation } from "react-router-dom"
 import {
@@ -10,7 +10,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import MeetingButton from "./MeetingButton"
 import { DemoButton } from "./DemoButton"
 
@@ -191,6 +191,10 @@ export default function Nav() {
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-[#0a1527]/90 backdrop-blur-sm border-none">
+            <SheetClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary text-white">
+              <X className="h-4 w-4" />
+              <span className="sr-only">Close</span>
+            </SheetClose>
             <nav className="flex flex-col gap-6 mt-8">
               {navItems.map((item, index) => (
                 <NavItem

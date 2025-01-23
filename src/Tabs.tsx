@@ -36,28 +36,31 @@ export default function TabsWithContent() {
   }
 
   return (
-    <div className="w-full mx-auto py-6">
-      <Tabs value={activeTab} onValueChange={handleTabChange}>
-        <TabsList className="flex flex-col md:flex-row w-full min-h-12 bg-transparent gap-2 md:gap-4 overflow-y-auto md:overflow-x-auto">
-          <TabTrigger value="one" icon={<Box className="w-4 h-4" />}>
-            Two line integration
-          </TabTrigger>
-          <TabTrigger value="two" icon={<BarChart2 className="w-4 h-4" />}>
-            Human in the loop
-          </TabTrigger>
-          <TabTrigger value="three" icon={<History className="w-4 h-4" />}>
-            Autonomous Learning
-          </TabTrigger>
-          <TabTrigger value="four" icon={<ToggleLeft className="w-4 h-4" />}>
-            Intelligent Guardrails
-          </TabTrigger>
-          <TabTrigger value="five" icon={<Swords className="w-4 h-4" />}>
-            Massively scalable
-          </TabTrigger>
-        </TabsList>
-      </Tabs>
-      <div className="mt-6">
-        <div className="min-h-[600px]">
+    <div className="w-full mx-auto pt-12 md:pt-0">
+      <div className="space-y-16 md:space-y-6">
+        <div className="px-4 md:px-0 py-12 md:py-0">
+          <Tabs value={activeTab} onValueChange={handleTabChange}>
+            <TabsList className="flex flex-col md:flex-row w-full min-h-12 bg-transparent gap-4 md:gap-4">
+              <TabTrigger value="one" icon={<Box className="w-4 h-4" />}>
+                Two line integration
+              </TabTrigger>
+              <TabTrigger value="two" icon={<BarChart2 className="w-4 h-4" />}>
+                Human in the loop
+              </TabTrigger>
+              <TabTrigger value="three" icon={<History className="w-4 h-4" />}>
+                Autonomous Learning
+              </TabTrigger>
+              <TabTrigger value="four" icon={<ToggleLeft className="w-4 h-4" />}>
+                Intelligent Guardrails
+              </TabTrigger>
+              <TabTrigger value="five" icon={<Swords className="w-4 h-4" />}>
+                Massively scalable
+              </TabTrigger>
+            </TabsList>
+          </Tabs>
+        </div>
+
+        <div className="min-h-[600px] px-4 md:px-0">
           <AnimatePresence mode="wait">
             {activeTab === "one" && <OneLineIntegrationContent />}
             {activeTab === "two" && <HumanInTheLoopContent />}
@@ -76,7 +79,7 @@ function TabTrigger({ value, icon, children }: { value: string; icon: React.Reac
     <TabsTrigger
       value={value}
       className={cn(
-        "flex items-center gap-2 px-4 py-2 rounded-lg",
+        "flex items-center gap-2 px-4 py-2 rounded-lg w-full md:w-auto",
         "text-gray-400 bg-transparent border-b-0 relative",
         "hover:bg-[#1a1c2e] hover:text-white",
         "hover:after:content-[''] hover:after:absolute hover:after:left-0",

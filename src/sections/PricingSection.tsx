@@ -75,7 +75,7 @@ export default function Pricing() {
       subtitle={content.pricingSubtitle}
       id="pricing"
     >
-      <div className="grid md:grid-cols-3 gap-8 w-full max-w-8xl mt-16">
+      <div className="grid md:grid-cols-3 gap-8 w-full max-w-8xl mt-16 px-4 md:px-0">
         {pricingPlans.map((plan) => (
           <Card
             key={plan.name}
