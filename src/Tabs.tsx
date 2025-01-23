@@ -57,13 +57,15 @@ export default function TabsWithContent() {
         </TabsList>
       </Tabs>
       <div className="mt-6">
-        <AnimatePresence mode="wait">
-          {activeTab === "one" && <OneLineIntegrationContent />}
-          {activeTab === "two" && <HumanInTheLoopContent />}
-          {activeTab === "three" && <AutonomousLearningContent />}
-          {activeTab === "four" && <IntelligenceGuardrailsContent />}
-          {activeTab === "five" && <MassivelyScalableContent />}
-        </AnimatePresence>
+        <div className="min-h-[600px]">
+          <AnimatePresence mode="wait">
+            {activeTab === "one" && <OneLineIntegrationContent />}
+            {activeTab === "two" && <HumanInTheLoopContent />}
+            {activeTab === "three" && <AutonomousLearningContent />}
+            {activeTab === "four" && <IntelligenceGuardrailsContent />}
+            {activeTab === "five" && <MassivelyScalableContent />}
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   )
@@ -153,9 +155,6 @@ function HumanInTheLoopContent() {
   return (
     <div className="flex flex-col gap-6 text-gray-400">
       <ContentWrapper title="Maintain high accuracy, and still scale">
-        <div className="flex-1 py-6">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-        </div>
         <BulletPointGradient>
           <ul className="space-y-4">
             <li className="flex items-center gap-2">

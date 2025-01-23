@@ -78,7 +78,7 @@ export default function Hero() {
               {/* {content.title} */}
               {/* Unleash your agentic browser workforce */}
               {/* Browser agents that actually work */}
-              Mission critical browser agents at scale
+              Mission critical <span className="font-semibold">browser agents</span> at scale
             </h1>
           </div>
           {/* Subheader */}
