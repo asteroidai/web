@@ -216,6 +216,18 @@ function AutonomousLearningContent() {
 function IntelligenceGuardrailsContent() {
   return (
     <ContentWrapper>
+      <motion.div
+        className="flex-1"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.3, delay: 0.2 }}
+      >
+        <Image
+          src="/features/supervisors.png"
+          alt="Supervisors Interface"
+          className="w-auto h-auto rounded-lg shadow-xl border border-indigo-500/20"
+        />
+      </motion.div>
       <div className="text-gray-400 flex flex-col gap-8">
         <BulletPointGradient l2r={true}>
           <ul className="space-y-6">
@@ -233,18 +245,6 @@ function IntelligenceGuardrailsContent() {
           Our intelligent guardrails provide a robust safety framework, ensuring your automations stay within defined boundaries while maintaining maximum flexibility and efficiency.
         </div>
       </div>
-      <motion.div
-        className="flex-1"
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.3, delay: 0.2 }}
-      >
-        <Image
-          src="/features/supervisors.png"
-          alt="Supervisors Interface"
-          className="w-auto h-auto rounded-lg shadow-xl border border-indigo-500/20"
-        />
-      </motion.div>
     </ContentWrapper>
   )
 }
