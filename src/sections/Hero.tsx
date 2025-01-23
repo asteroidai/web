@@ -8,6 +8,39 @@ import { useContext } from 'react'
 import { UserContext } from '@/contexts/UserContext'
 import MeetingButton from '@/MeetingButton'
 import { DemoButton } from '@/DemoButton'
+import Typewriter from 'typewriter-effect'
+
+function TypingSubtitle() {
+  return (
+    <div className="h-24 flex items-center justify-center">
+      <div className="text-lg sm:text-xl lg:text-2xl text-gray-400 tracking-wide">
+        <Typewriter
+          options={{
+            loop: true,
+            delay: 50,
+            deleteSpeed: 30,
+          }}
+          onInit={(typewriter) => {
+            typewriter
+              .typeString('Build web automations in plain English')
+              .pauseFor(1000)
+              .deleteAll(1)
+              .typeString('Improve your agent through feedback')
+              .pauseFor(1000)
+              .deleteAll(1)
+              .typeString('Tackle previously impossible web workflows')
+              .pauseFor(1000)
+              .deleteAll(1)
+              .typeString('Scale to millions of tasks with complete control⚡️')
+              .pauseFor(1000)
+              .deleteAll(1)
+              .start();
+          }}
+        />
+      </div>
+    </div>
+  );
+}
 
 export default function Hero() {
   const { userType, content } = useContext(UserContext)
@@ -39,8 +72,8 @@ export default function Hero() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-16">
 
         {/* Title */}
-        <div className="max-w-2xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight font-thin text-white tracking-wide">
+        <div className="max-w-3xl mx-auto">
+          <h1 className="sm:text-5xl md:text-6xl lg:text-7xl tracking-tight font-thin text-white tracking-wide">
             {/* {content.title} */}
             Build and <span className="font-semibold">orchestrate</span> your AI browser <span className="font-semibold">workforce</span>
           </h1>
@@ -51,11 +84,9 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="text-base sm:text-lg lg:text-xl mb-12 text-gray-400 max-w-2xl mx-auto"
+          className="mb-12"
         >
-          <p className="text-lg sm:text-xl lg:text-2xl mb-8 text-gray-400 tracking-wide">
-            {content.subtitle}
-          </p>
+          <TypingSubtitle />
         </motion.div>
 
         <DemoButton />

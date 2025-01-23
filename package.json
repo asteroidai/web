@@ -41,6 +41,7 @@
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.3.3",
+    "typewriter-effect": "^2.21.0",
     "validator": "^13.12.0",
     "vite": "^4.5.0"
   },
