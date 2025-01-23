@@ -1,44 +1,44 @@
 import * as React from 'react'
 import { useContext, useState } from "react"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Box, BarChart2, History, ToggleLeft, Swords } from "lucide-react"
+import { Box, BarChart2, History, ToggleLeft, Swords, Code, FileX, Wrench, Bell, CheckCircle, Video, Brain, RefreshCw, UserPlus, Shield, BookOpen, Boxes, Server } from "lucide-react"
 import Terminal from './Terminal'
 import { UserContext } from './contexts/UserContext'
 import { cn } from './lib/utils'
 import { motion, AnimatePresence } from "framer-motion"
-
+import { Image } from './Image'
 export default function TabsWithContent() {
-  const [activeTab, setActiveTab] = useState("os")
+  const [activeTab, setActiveTab] = useState("one")
   const { content } = useContext(UserContext)
 
   return (
     <div className="w-full mx-auto py-6">
       <Tabs value={activeTab} onValueChange={setActiveTab}>
-        <TabsList className="flex w-full h-12 bg-transparent gap-4 overflow-x-auto">
-          <TabTrigger value="os" icon={<Box className="w-4 h-4" />}>
-            Product OS
+        <TabsList className="flex flex-col md:flex-row w-full min-h-12 bg-transparent gap-2 md:gap-4 overflow-y-auto md:overflow-x-auto">
+          <TabTrigger value="one" icon={<Box className="w-4 h-4" />}>
+            Two line integration
           </TabTrigger>
-          <TabTrigger value="analytics" icon={<BarChart2 className="w-4 h-4" />}>
-            Product analytics
+          <TabTrigger value="two" icon={<BarChart2 className="w-4 h-4" />}>
+            Human in the loop
           </TabTrigger>
-          <TabTrigger value="replay" icon={<History className="w-4 h-4" />}>
-            Session replay
+          <TabTrigger value="three" icon={<History className="w-4 h-4" />}>
+            Autonomous Learning
           </TabTrigger>
-          <TabTrigger value="flags" icon={<ToggleLeft className="w-4 h-4" />}>
-            Feature flags
+          <TabTrigger value="four" icon={<ToggleLeft className="w-4 h-4" />}>
+            Intelligence Guardrails
           </TabTrigger>
-          <TabTrigger value="experiments" icon={<Swords className="w-4 h-4" />}>
-            Experiments
+          <TabTrigger value="five" icon={<Swords className="w-4 h-4" />}>
+            Massively scalable
           </TabTrigger>
         </TabsList>
       </Tabs>
       <div className="mt-6">
         <AnimatePresence mode="wait">
-          {activeTab === "os" && <ProductOSContent />}
-          {activeTab === "analytics" && <AnalyticsContent />}
-          {activeTab === "replay" && <ReplayContent />}
-          {activeTab === "flags" && <FlagsContent />}
-          {activeTab === "experiments" && <ExperimentsContent />}
+          {activeTab === "one" && <OneLineIntegrationContent />}
+          {activeTab === "two" && <HumanInTheLoopContent />}
+          {activeTab === "three" && <AutonomousLearningContent />}
+          {activeTab === "four" && <IntelligenceGuardrailsContent />}
+          {activeTab === "five" && <MassivelyScalableContent />}
         </AnimatePresence>
       </div>
     </div>
@@ -85,47 +85,65 @@ function ContentWrapper({ children }: { children: React.ReactNode }) {
   )
 }
 
-function ProductOSContent() {
+function OneLineIntegrationContent() {
   return (
     <ContentWrapper>
-      <Terminal code={`console.log('Product OS specific code')
-        console.log('Product OS specific code')
-        console.log('Product OS specific code')
-        console.log('Product OS specific code')
-        console.log('Product OS specific code')
-        `} allowClose={true} width={'full'} />
-      <img
-        src="/features/linkedin.png"
-        alt="Screenshot"
-        width={400}
-        height={400}
-        className="w-full h-auto rounded-lg shadow-md"
-      />
-      <img
-        src="/features/inlinereview.png"
-        alt="Screenshot"
-        width={400}
-        height={400}
-        className="w-full h-auto rounded-lg shadow-md"
-      />
+      <div className="flex flex-col gap-4 h-96 w-128">
+        <Terminal code={`
+from asteroid_sdk import web_task
+
+result = web_task.run(
+  f"Update details for our 50 real estate listings ...", 
+  workflow_id="real_estate_listings"
+)
+        `} allowClose={true} />
+      </div>
+      <div className="text-gray-400">
+        <ul className="space-y-4">
+          <li className="flex items-center gap-2">
+            <Code className="w-5 h-5 text-indigo-500" />
+            <span className="text-lg">Launch powerful browser automations with a single line of code</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <FileX className="w-5 h-5 text-indigo-500" />
+            <span className="text-lg" >No complex configuration or trawling through API docs</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <Wrench className="w-5 h-5 text-indigo-500" />
+            <span className="text-lg">No manual maintenance of automation scripts</span>
+          </li>
+        </ul>
+      </div>
     </ContentWrapper>
   )
 }
 
-
-
-
-function AnalyticsContent() {
+function HumanInTheLoopContent() {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 text-gray-400">
       <ContentWrapper>
-        <div className="flex-1 bg-gray-100 rounded-lg p-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+        <div className="flex-1 py-6">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
         </div>
+        <BulletPointGradient>
+          <ul className="space-y-4">
+            <li className="flex items-center gap-2">
+              <Bell className="w-5 h-5 text-indigo-500" />
+              <span className="text-lg">Get instant alerts for uncertain situations</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <CheckCircle className="w-5 h-5 text-indigo-500" />
+              <span className="text-lg">Review and approve agent actions in real-time</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <Video className="w-5 h-5 text-indigo-500" />
+              <span className="text-lg">Access full session recordings for oversight</span>
+            </li>
+          </ul>
+        </BulletPointGradient>
       </ContentWrapper>
 
       <ContentWrapper>
-        {/* Custom Analytics content */}
         <motion.div
           className="flex-1"
           initial={{ opacity: 0, x: -20 }}
@@ -133,11 +151,9 @@ function AnalyticsContent() {
           transition={{ duration: 0.3, delay: 0.1 }}
         >
           <img
-            src="/features/inlinereview.png"
+            src="/features/linkedin.png"
             alt="Screenshot"
-            width={400}
-            height={400}
-            className="w-full h-auto rounded-lg shadow-md"
+            className="w-auto h-auto rounded-lg shadow-md"
           />
         </motion.div>
         <motion.div
@@ -149,9 +165,7 @@ function AnalyticsContent() {
           <img
             src="/features/inlinereview.png"
             alt="Screenshot"
-            width={400}
-            height={400}
-            className="w-full h-auto rounded-lg shadow-md"
+            className="w-auto h-auto rounded-lg shadow-md"
           />
         </motion.div>
       </ContentWrapper>
@@ -159,10 +173,109 @@ function AnalyticsContent() {
   )
 }
 
-function ReplayContent() {
+function AutonomousLearningContent() {
   return (
     <ContentWrapper>
-      {/* Custom Analytics content */}
+      <div className="text-gray-400 flex flex-col gap-8">
+        <BulletPointGradient l2r={true}>
+          <ul className="space-y-4">
+            <li className="flex items-center gap-2">
+              <Brain className="w-5 h-5 text-indigo-500" />
+              <span className="text-lg">Self-learns and replicates complex workflows</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <RefreshCw className="w-5 h-5 text-indigo-500" />
+              <span className="text-lg">Adapts automatically to website changes</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <UserPlus className="w-5 h-5 text-indigo-500" />
+              <span className="text-lg">Improves from every human interaction</span>
+            </li>
+          </ul>
+        </BulletPointGradient>
+        <div className="max-w-3xl">
+          Our autonomous agents learn from every interaction, continuously improving their ability to handle complex workflows. They automatically adapt to website changes and new scenarios, reducing maintenance overhead and improving reliability over time.
+        </div>
+      </div>
+      <motion.div
+        className="flex flex-col gap-4"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.3, delay: 0.1 }}
+      >
+        <Image
+          src="/features/rundetails.png"
+          alt="Run Details Screenshot"
+          className="w-auto h-auto rounded-lg shadow-md"
+        />
+      </motion.div>
+    </ContentWrapper>
+  )
+}
+
+function IntelligenceGuardrailsContent() {
+  return (
+    <ContentWrapper>
+      <div className="text-gray-400 flex flex-col gap-8">
+        <BulletPointGradient l2r={true}>
+          <ul className="space-y-6">
+            <li className="flex items-center gap-3">
+              <Shield className="w-5 h-5 text-indigo-400" />
+              <span className="text-lg">Set and enforce safety boundaries in real-time</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <BookOpen className="w-5 h-5 text-indigo-400" />
+              <span className="text-lg">Use pre-built rules for popular websites</span>
+            </li>
+          </ul>
+        </BulletPointGradient>
+        <div className="max-w-xl">
+          Our intelligent guardrails provide a robust safety framework, ensuring your automations stay within defined boundaries while maintaining maximum flexibility and efficiency.
+        </div>
+      </div>
+      <motion.div
+        className="flex-1"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.3, delay: 0.2 }}
+      >
+        <Image
+          src="/features/supervisors.png"
+          alt="Supervisors Interface"
+          className="w-auto h-auto rounded-lg shadow-xl border border-indigo-500/20"
+        />
+      </motion.div>
+    </ContentWrapper>
+  )
+}
+
+function MassivelyScalableContent() {
+  return (
+    <ContentWrapper>
+      <div className="text-gray-400 flex flex-col gap-8">
+        <div className="bg-gradient-to-bl from-indigo-500/10 via-purple-500/5 to-transparent p-6 rounded-lg backdrop-blur-sm">
+          <ul className="space-y-6">
+            <li className="flex items-center gap-3">
+              <Boxes className="w-5 h-5 text-indigo-400" />
+              <span className="text-lg">Run 1000+ concurrent sessions on demand</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <Server className="w-5 h-5 text-indigo-400" />
+              <span className="text-lg">No browser or server management needed</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="bg-transparent transparent rounded-lg p-6 backdrop-blur-sm">
+          <h3 className="text-lg font-semibold mb-4 text-indigo-400">Powered by enterprise-grade tech</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <TechItem icon={<img src="/tech/icons8-golang-96.svg" alt="Go" className="w-8 h-8" />} name="Go" />
+            <TechItem icon={<img src="/tech/icons8-kubernetes-96.svg" alt="Kubernetes" className="w-8 h-8" />} name="Kubernetes" />
+            <TechItem icon={<img src="/tech/browserbasehq_logo.jpg" alt="Browserbase" className="w-8 h-8 rounded" />} name="Browserbase" />
+            <TechItem icon={<img src="/tech/icons8-chatgpt-100.svg" alt="ChatGPT" className="w-8 h-8 brightness-0 invert" />} name="ChatGPT" />
+          </div>
+        </div>
+      </div>
       <motion.div
         className="flex-1"
         initial={{ opacity: 0, x: 20 }}
@@ -170,41 +283,37 @@ function ReplayContent() {
         transition={{ duration: 0.3, delay: 0.2 }}
       >
         <img
-          src="/features/inlinereview.png"
-          alt="Screenshot"
-          width={400}
-          height={400}
-          className="w-full h-auto rounded-lg shadow-md"
+          src="/features/runs.png"
+          alt="Concurrent Runs"
+          className="w-auto h-auto rounded-lg shadow-xl border border-indigo-500/20"
         />
       </motion.div>
-      <motion.div
-        className="flex-1"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.3, delay: 0.1 }}
-      >
-        <Terminal code="console.log('Product OS specific code')" allowClose={true} width={'full'} />
-      </motion.div>
     </ContentWrapper>
   )
 }
 
-function FlagsContent() {
+interface BulletPointGradientProps {
+  children: React.ReactNode
+  l2r?: boolean
+}
+
+function BulletPointGradient({ children, l2r = false }: BulletPointGradientProps) {
   return (
-    <ContentWrapper>
-      {/* Custom Flags content */}
-      ff
-    </ContentWrapper>
+    <div className={cn(l2r ? "bg-gradient-to-r from-indigo-500/10 to-transparent p-6 rounded-lg backdrop-blur-sm" : "bg-gradient-to-l from-indigo-500/10 to-transparent p-6 rounded-lg backdrop-blur-sm")}>
+      {children}
+    </div>
   )
 }
 
-function ExperimentsContent() {
+interface TechItemProps {
+  icon: React.ReactNode;
+  name: string;
+}
+
+function TechItem({ icon, name }: TechItemProps) {
   return (
-    <ContentWrapper>
-      {/* Custom Experiments content */}
-
-      iffff
-    </ContentWrapper>
+    <div className="flex flex-col items-center gap-2 p-3 rounded-lg bg-transparent hover:bg-white/10 transition-colors">
+      {icon}
+    </div>
   )
 }
-

@@ -9,7 +9,7 @@ interface SectionProps {
 
 export default function Section({ title, subtitle, children, id }: SectionProps) {
   return (
-    <div id={id} className="container max-w-6xl mx-auto px-4 sm:px-6 lg:px-0">
+    <div id={id} className="container max-w-6xl mx-auto px-4 sm:px-6 lg:px-">
       <div className="w-full space-y-8 sm:space-y-12">
         <div className="space-y-4">
           <h1 className="text-3xl sm:text-4xl font-bold text-center text-white">
