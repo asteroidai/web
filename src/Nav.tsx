@@ -53,7 +53,7 @@ const scrollToTop = (e: React.MouseEvent) => {
 
 // Navigation items
 const navItems = [
-  { name: "Docs", href: "https://docs.asteroid.ai", icon: BookIcon },
+  // { name: "Docs", href: "https://docs.asteroid.ai", icon: BookIcon },
   { name: "Blog", href: "https://blog.asteroid.ai", icon: LibraryIcon },
   { name: "Pricing", href: "/pricing", icon: DollarSignIcon, onClick: scrollToPricing },
 ]
