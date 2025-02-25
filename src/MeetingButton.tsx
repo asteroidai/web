@@ -33,6 +33,7 @@ export default function MeetingButton({
             "border border-indigo-500/50",
             "transition-all duration-300",
             "hover:scale-105 active:scale-95",
+            "hover:text-white",
             "shadow-lg shadow-indigo-500/25",
             "overflow-hidden"
           ]

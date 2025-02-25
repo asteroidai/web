@@ -56,7 +56,7 @@ const pricingPlans = [
       "Human in the loop",
       "Deploy browser agents as APIs",
     ],
-    buttonText: "Partner With Us",
+    buttonText: "Talk to us",
     buttonVariant: "primary",
     buttonHref: "https://calendly.com/founders-asteroid-hhaf/30min",
     highlighted: true,
