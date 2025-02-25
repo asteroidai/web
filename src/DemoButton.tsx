@@ -37,7 +37,7 @@ export const DemoButton: React.FC = () => {
 export const PlatformButton: React.FC = () => {
   return (
     <div className="">
-      <Link to="/platform">
+      <a href="https://platform.asteroid.ai">
         <Button
           variant="outline"
           size="lg"
@@ -71,7 +71,7 @@ export const PlatformButton: React.FC = () => {
             </svg>
           </span>
         </Button>
-      </Link>
+      </a>
     </div>
   )
 }
