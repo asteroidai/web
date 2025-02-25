@@ -40,7 +40,7 @@ const content: Content = {
   tabsTitle: "Outsource your complex web flows",
   tabsSubtitle: "Stop maintaining custom browser automations, and use Asteroid Agents to handle them.",
   pricingTitle: "Get Started",
-  pricingSubtitle: "Choose the plan for your needs",
+  pricingSubtitle: "Come and talk to us about your use case",
   gifTitle: "Take the manual out of your workflow",
   gifDescription: "Integrate into Asteroid in just a few lines of code",
   outroTitle: "Asteroid is building mission control for AI agents",
