@@ -53,7 +53,7 @@ export const PlatformButton: React.FC = () => {
           )}
         >
           <span className="relative z-10 flex items-center gap-2 font-semibold tracking-wide transition-all duration-700">
-            Go to platform
+            Start AI Agent
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
