@@ -73,11 +73,11 @@ export default function Pricing() {
       subtitle={content.pricingSubtitle}
       id="pricing"
     >
-      <div className="grid md:grid-cols-3 gap-8 w-full max-w-8xl mt-16 px-4 md:px-0">
+      <div className="flex justify-center w-full max-w-8xl mt-16 px-4 md:px-0">
         {pricingPlans.map((plan) => (
           <Card
             key={plan.name}
-            className={`flex flex-col transition-all duration-300 ease-in-out bg-[#0A0A1F] border-none text-white group
+            className={`flex flex-col transition-all duration-300 ease-in-out bg-[#0A0A1F] border-none text-white group max-w-md
                 ${plan.highlighted
                 ? 'transform scale-105 shadow-[0_0_30px_rgba(255,255,255,0.15)] border-primary hover:-translate-y-4 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)]'
                 : 'hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] shadow-[0_0_20px_rgba(255,255,255,0.08)]'
