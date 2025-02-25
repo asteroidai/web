@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 import { useContext } from 'react'
 import { UserContext } from '@/contexts/UserContext'
 import MeetingButton from '@/MeetingButton'
-import { DemoButton } from '@/DemoButton'
+import { DemoButton, PlatformButton } from '@/DemoButton'
 import Typewriter from 'typewriter-effect'
 
 function TypingSubtitle() {
@@ -103,7 +103,11 @@ export default function Hero() {
           </motion.div> */}
         </div>
 
-        <DemoButton />
+        <div className="flex flex-row items-center justify-center gap-6">
+          <DemoButton />
+          <PlatformButton />
+        </div>
+
 
       </div >
 
