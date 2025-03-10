@@ -42,7 +42,7 @@ export default function TabsWithContent() {
           <Tabs value={activeTab} onValueChange={handleTabChange}>
             <TabsList className="flex flex-col md:flex-row w-full min-h-12 bg-transparent gap-4 md:gap-4">
               <TabTrigger value="one" icon={<Box className="w-4 h-4" />}>
-                Two line integration
+                Call with API
               </TabTrigger>
               <TabTrigger value="two" icon={<BarChart2 className="w-4 h-4" />}>
                 Human in the loop
@@ -125,14 +125,24 @@ function OneLineIntegrationContent() {
   return (
     <ContentWrapper title="Deploy automation in minutes, not weeks">
       <div className="flex flex-col gap-4 h-96 w-full md:w-128">
-        <Terminal code={`
-from asteroid_sdk import web_task
+        <Terminal code={`from asteroid_odyssey import AsteroidAgents
 
-result = web_task.run(
-  f"Update details for our 50 real estate listings ...", 
-  workflow_id="real_estate_listings"
-U)
-        `} allowClose={true} />
+asteroid = AsteroidAgents('YOUR_API_KEY')
+
+# Create a workflow in code or build it in the platform
+workflow_id = await asteroid.create_workflow("ceres", {
+    "name": "My Insurance Workflow",
+    "fields": {"start_url": "https://insurance.com"},
+    "prompts": ["Sign into the insurance portal and get me an quote for customer {{CUSTOMER_DETAILS}}"],
+    "provider": "OPENAI"
+})
+
+asteroid.run_workflow(workflow_id, {
+    "customer_details": "John Doe, 30, Male, New York"
+})
+
+
+`} allowClose={true} />
       </div>
       <div className="text-gray-400">
         <ul className="space-y-4">

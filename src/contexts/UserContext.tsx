@@ -35,8 +35,8 @@ interface Content {
 }
 
 const content: Content = {
-  title: "Build and orchestrate your AI browser workforce",
-  subtitle: "Build web automations in plain English, perfect them through feedback, and tackle previously impossible web workflows. Scale to millions of tasks with complete control.",
+  title: "Purpose-Built for High-Stakes Browser Tasks in Regulated Industries",
+  subtitle: "Insurance brokers, healthcare administrators, and operations teams use Asteroid to automate repetitive browser workflows while maintaining full oversight—saving thousands in labor costs monthly.",
   tabsTitle: "Outsource your complex web flows",
   tabsSubtitle: "Stop maintaining custom browser automations, and use Asteroid Agents to handle them.",
   pricingTitle: "Get Started",
