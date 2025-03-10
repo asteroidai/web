@@ -1,6 +1,6 @@
 import * as React from "react"
 import { motion } from "framer-motion"
-import { MenuIcon, Slack, GithubIcon, BookIcon, LibraryIcon, DollarSignIcon, X } from 'lucide-react'
+import { MenuIcon, Slack, GithubIcon, BookIcon, X } from 'lucide-react'
 import { cn } from "@/lib/utils"
 import { Link, useLocation } from "react-router-dom"
 import {
@@ -12,7 +12,6 @@ import {
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import MeetingButton from "./MeetingButton"
-import { DemoButton } from "./DemoButton"
 
 const NavLink = motion(Link)
 
@@ -53,7 +52,7 @@ const scrollToTop = (e: React.MouseEvent) => {
 
 // Navigation items
 const navItems = [
-  // { name: "Docs", href: "https://docs.asteroid.ai", icon: BookIcon },
+  { name: "Docs", href: "https://docs.asteroid.ai", icon: BookIcon },
   // { name: "Blog", href: "https://blog.asteroid.ai", icon: LibraryIcon },
   // { name: "Pricing", href: "/pricing", icon: DollarSignIcon, onClick: scrollToPricing },
 ]
