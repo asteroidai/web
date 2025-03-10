@@ -75,19 +75,14 @@ export default function Hero() {
           {/* Title */}
           <div className="max-w-3xl mx-auto">
             <h1 className="text-5xl md:text-6xl lg:text-7xl tracking-tight font-thin text-white tracking-wide">
-              {/* {content.title} */}
-              {/* Unleash your agentic browser workforce */}
-              {/* Browser agents that actually work */}
-              Mission critical <span className="font-semibold">browser agents</span> at scale
+              Browser Automation, <span className="font-semibold">Human Precision</span>
             </h1>
           </div>
           {/* Subheader */}
           <div className="max-w-3xl mx-auto">
             <p className="text-lg sm:text-xl lg:text-2xl text-gray-400 tracking-wide">
-              {/* The fastest way to build browser automations that actually work */}
-              Automate previously impossible workflows on the web,
+              Turn hours of tedious portal tasks into minutes—AI agents automate your workflows, guided by your expertise.
               <br />
-              In one line of code.
 
             </p>
           </div>
@@ -103,7 +98,7 @@ export default function Hero() {
           </motion.div> */}
         </div>
 
-        <div className="flex flex-row items-center justify-center gap-6">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
           <DemoButton />
           <PlatformButton />
         </div>

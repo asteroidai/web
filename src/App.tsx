@@ -12,7 +12,6 @@ export default function App() {
   return (
     <>
       <Stars2 />
-      <InstallTerminal />
       <Hero />
 
       {/* Main content */}
@@ -25,12 +24,3 @@ export default function App() {
     </>
   )
 }
-
-// <div className="container max-w-6xl mx-auto">
-//   <DeploymentSteps />
-// </div>
-// <div className="container max-w-6xl mx-auto">
-//   <KeyFeatures />
-// </div>
-// <div className="container max-w-6xl mx-auto">
-// </div>

@@ -57,7 +57,7 @@ const socialLinks = [
 const resourceLinks = [
   { name: "Home", href: "/", icon: HomeIcon, onClick: scrollToTop },
   { name: "Documentation", href: "https://docs.asteroid.ai", icon: BookIcon },
-  { name: "Blog", href: "https://blog.asteroid.ai", icon: LibraryIcon },
+  // { name: "Blog", href: "https://blog.asteroid.ai", icon: LibraryIcon },
   { name: "Contact", href: "mailto:founders@asteroid.ai", icon: MailIcon },
   {
     name: "Pricing", href: "#pricing", icon: DollarSignIcon, onClick: scrollToPricing
