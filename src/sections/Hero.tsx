@@ -9,38 +9,7 @@ import { UserContext } from '@/contexts/UserContext'
 import MeetingButton from '@/MeetingButton'
 import { DemoButton, PlatformButton } from '@/DemoButton'
 import Typewriter from 'typewriter-effect'
-
-function TypingSubtitle() {
-  return (
-    <div className="h-24 flex items-center justify-center">
-      <div className="text-lg sm:text-xl lg:text-2xl text-gray-400 tracking-wide">
-        <Typewriter
-          options={{
-            loop: true,
-            delay: 50,
-            deleteSpeed: 30,
-          }}
-          onInit={(typewriter) => {
-            typewriter
-              .typeString('Build web automations in plain English')
-              .pauseFor(1000)
-              .deleteAll(1)
-              .typeString('Improve your agent through feedback')
-              .pauseFor(1000)
-              .deleteAll(1)
-              .typeString('Tackle previously impossible web workflows')
-              .pauseFor(1000)
-              .deleteAll(1)
-              .typeString('Scale to millions of tasks with complete control⚡️')
-              .pauseFor(1000)
-              .deleteAll(1)
-              .start();
-          }}
-        />
-      </div>
-    </div>
-  );
-}
+import FormButton from './Typeform'
 
 export default function Hero() {
   const { userType, content } = useContext(UserContext)
@@ -87,20 +56,11 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* Subtitle */}
-          {/* <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
-            className="mb-12"
-          >
-            <TypingSubtitle />
-          </motion.div> */}
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
           <DemoButton />
-          <PlatformButton />
+          <FormButton />
         </div>
 
 
