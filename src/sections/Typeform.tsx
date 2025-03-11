@@ -52,7 +52,7 @@ export default function FormButton() {
               overflow-hidden font-bold
             `}
         >
-          Get Started
+          Tell us about your project
         </Button>
       </a>
     </div>
