@@ -11,6 +11,7 @@ import { Toaster } from '@/components/ui/toaster'
 
 import App from '@/App'
 import { UserProvider } from '@/contexts/UserContext';
+import AgentExam from './AgentExam';
 
 const rootElement = document.getElementById('root');
 if (rootElement) {
@@ -24,6 +25,7 @@ if (rootElement) {
               <Routes>
                 <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/terms" element={<Terms />} />
+                <Route path="/form" element={<AgentExam />} />
                 <Route path="/" element={<App />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
