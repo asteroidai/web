@@ -824,110 +824,158 @@ export default function Form() {
 
             <TabsContent value="contact">
               <ValidationSummary errors={errors} />
-              {/* Contact Details Section */}
-              <div className="space-y-6">
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">Title</label>
-                    <select
-                      value={formData.contact.title}
-                      onChange={(e) => handleChange('contact', 'title', e.target.value)}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                    >
-                      <option value="">Select...</option>
-                      <option value="Mr">Mr</option>
-                      <option value="Mrs">Mrs</option>
-                      <option value="Ms">Ms</option>
-                      <option value="Dr">Dr</option>
-                      <option value="Prof">Prof</option>
-                      <option value="Other">Other</option>
-                    </select>
+              {/* Add intro section with padding */}
+              <div className="space-y-12 mb-16">
+                <div className="prose max-w-none">
+                  <h1 className="text-3xl font-bold text-gray-900 mb-6">Commercial Property Insurance Application</h1>
+
+                  <div className="bg-blue-50 p-6 rounded-lg mb-8">
+                    <h2 className="text-xl font-semibold text-blue-900 mb-4">Important Information</h2>
+                    <p className="text-blue-800 mb-4">
+                      Please ensure you provide accurate information in this application. Any discrepancies or omissions could affect your insurance coverage.
+                    </p>
+                    <ul className="list-disc pl-5 space-y-2 text-blue-800">
+                      <li>All fields marked with an asterisk (*) are mandatory</li>
+                      <li>Please have your business documentation ready for reference</li>
+                      <li>If you need to pause your application, your progress will be saved</li>
+                    </ul>
                   </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">First Name</label>
-                    <input
-                      type="text"
-                      value={formData.contact.firstName}
-                      onChange={(e) => handleChange('contact', 'firstName', e.target.value)}
-                      className={`mt-1 block w-full rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500
-                        ${errors.contact?.firstName && touched.has('contact.firstName')
-                          ? 'border-red-300 bg-red-50'
-                          : 'border-gray-300'
-                        }`}
-                    />
-                    {errors.contact?.firstName && touched.has('contact.firstName') && (
-                      <p className="mt-1 text-sm text-red-600">{errors.contact.firstName}</p>
-                    )}
+                  <div className="bg-gray-50 p-6 rounded-lg mb-12">
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4">Before You Begin</h2>
+                    <p className="text-gray-700 mb-4">
+                      This application consists of several sections covering different aspects of your commercial property:
+                    </p>
+                    <ol className="list-decimal pl-5 space-y-2 text-gray-700">
+                      <li><strong>Contact Details</strong> - Your personal and contact information</li>
+                      <li><strong>Business Information</strong> - Details about your business entity</li>
+                      <li><strong>Premises Details</strong> - Information about the property to be insured</li>
+                      <li><strong>Security & Safety</strong> - Security measures and safety features</li>
+                      <li><strong>Coverage Options</strong> - Your desired insurance coverage</li>
+                    </ol>
                   </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">Last Name</label>
-                    <input
-                      type="text"
-                      value={formData.contact.lastName}
-                      onChange={(e) => handleChange('contact', 'lastName', e.target.value)}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">Date of Birth</label>
-                    <input
-                      type="date"
-                      value={formData.contact.dateOfBirth}
-                      onChange={(e) => handleChange('contact', 'dateOfBirth', e.target.value)}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">Phone Number</label>
-                    <input
-                      type="tel"
-                      value={formData.contact.phoneNumber}
-                      onChange={(e) => handleChange('contact', 'phoneNumber', e.target.value)}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">Years as Landlord</label>
-                    <input
-                      type="number"
-                      min="0"
-                      value={formData.contact.numberOfYearsAsLandlord}
-                      onChange={(e) => handleChange('contact', 'numberOfYearsAsLandlord', parseInt(e.target.value))}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                    />
+                  <div className="bg-yellow-50 p-6 rounded-lg mb-16">
+                    <h2 className="text-xl font-semibold text-yellow-900 mb-4">Need Help?</h2>
+                    <p className="text-yellow-800 mb-4">
+                      If you need assistance completing this form or have questions about your coverage options:
+                    </p>
+                    <ul className="list-disc pl-5 space-y-2 text-yellow-800">
+                      <li>Call our support team at 0800 123 4567</li>
+                      <li>Email us at support@insurance.com</li>
+                      <li>Use the chat feature in the bottom right corner</li>
+                    </ul>
                   </div>
                 </div>
 
-                <div className="space-y-4">
-                  <div className="flex items-center">
-                    <input
-                      type="checkbox"
-                      id="jointInsured"
-                      checked={formData.contact.jointInsured}
-                      onChange={(e) => handleChange('contact', 'jointInsured', e.target.checked)}
-                      className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                    />
-                    <label htmlFor="jointInsured" className="ml-2 block text-sm text-gray-700">
-                      Joint Insured
-                    </label>
-                  </div>
+                <div className="border-t border-gray-200 pt-12">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-8">Contact Details</h2>
+                  {/* Existing contact form content */}
+                  <div className="space-y-6">
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">Title</label>
+                        <select
+                          value={formData.contact.title}
+                          onChange={(e) => handleChange('contact', 'title', e.target.value)}
+                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        >
+                          <option value="">Select...</option>
+                          <option value="Mr">Mr</option>
+                          <option value="Mrs">Mrs</option>
+                          <option value="Ms">Ms</option>
+                          <option value="Dr">Dr</option>
+                          <option value="Prof">Prof</option>
+                          <option value="Other">Other</option>
+                        </select>
+                      </div>
 
-                  {formData.contact.jointInsured && (
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700">Joint Insured Person Name</label>
-                      <input
-                        type="text"
-                        value={formData.contact.jointInsuredPersonName}
-                        onChange={(e) => handleChange('contact', 'jointInsuredPersonName', e.target.value)}
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                      />
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">First Name</label>
+                        <input
+                          type="text"
+                          value={formData.contact.firstName}
+                          onChange={(e) => handleChange('contact', 'firstName', e.target.value)}
+                          className={`mt-1 block w-full rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500
+                            ${errors.contact?.firstName && touched.has('contact.firstName')
+                              ? 'border-red-300 bg-red-50'
+                              : 'border-gray-300'
+                            }`}
+                        />
+                        {errors.contact?.firstName && touched.has('contact.firstName') && (
+                          <p className="mt-1 text-sm text-red-600">{errors.contact.firstName}</p>
+                        )}
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">Last Name</label>
+                        <input
+                          type="text"
+                          value={formData.contact.lastName}
+                          onChange={(e) => handleChange('contact', 'lastName', e.target.value)}
+                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">Date of Birth</label>
+                        <input
+                          type="date"
+                          value={formData.contact.dateOfBirth}
+                          onChange={(e) => handleChange('contact', 'dateOfBirth', e.target.value)}
+                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">Phone Number</label>
+                        <input
+                          type="tel"
+                          value={formData.contact.phoneNumber}
+                          onChange={(e) => handleChange('contact', 'phoneNumber', e.target.value)}
+                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">Years as Landlord</label>
+                        <input
+                          type="number"
+                          min="0"
+                          value={formData.contact.numberOfYearsAsLandlord}
+                          onChange={(e) => handleChange('contact', 'numberOfYearsAsLandlord', parseInt(e.target.value))}
+                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        />
+                      </div>
                     </div>
-                  )}
+
+                    <div className="space-y-4">
+                      <div className="flex items-center">
+                        <input
+                          type="checkbox"
+                          id="jointInsured"
+                          checked={formData.contact.jointInsured}
+                          onChange={(e) => handleChange('contact', 'jointInsured', e.target.checked)}
+                          className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                        />
+                        <label htmlFor="jointInsured" className="ml-2 block text-sm text-gray-700">
+                          Joint Insured
+                        </label>
+                      </div>
+
+                      {formData.contact.jointInsured && (
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700">Joint Insured Person Name</label>
+                          <input
+                            type="text"
+                            value={formData.contact.jointInsuredPersonName}
+                            onChange={(e) => handleChange('contact', 'jointInsuredPersonName', e.target.value)}
+                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                          />
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
             </TabsContent>
