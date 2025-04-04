@@ -12,8 +12,31 @@ import Typewriter from 'typewriter-effect'
 import FormButton from './Typeform'
 
 export default function Hero() {
+  // hooks
   const { userType, content } = useContext(UserContext)
   const [isVisible, setIsVisible] = React.useState(true)
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3
+      }
+    }
+  }
+
+  //functions 
+  const getChars = () => {
+    const normalText = "Browser Automation, "
+    const boldText = "Human Precision"
+    
+    return [
+      ...normalText.split('').map((char) => ({ char, bold: false })),
+      ...boldText.split('').map((char) => ({ char, bold: true }))
+    ]
+
+  }
 
   // Add scroll listener
   React.useEffect(() => {
@@ -26,16 +49,6 @@ export default function Hero() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3
-      }
-    }
-  }
-
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden text-white/70 py-12">
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
@@ -44,7 +57,16 @@ export default function Hero() {
           {/* Title */}
           <div className="max-w-3xl mx-auto">
             <h1 className="text-5xl md:text-6xl lg:text-7xl tracking-tight font-thin text-white tracking-wide">
-              Browser Automation, <span className="font-semibold">Human Precision</span>
+              {
+                getChars().map(({ char, bold }, index) => ( 
+                  <motion.span 
+                    className={cn(bold && 'font-bold')} key={char}
+                    initial={{ opacity: 0, filter: 'blur(10px)' }}
+                    animate={{ opacity: 1, filter: 'blur(0px)' }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.02 }}
+                  >{char}</motion.span>
+                ))
+              }
             </h1>
           </div>
           {/* Subheader */}
