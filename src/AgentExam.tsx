@@ -827,8 +827,6 @@ export default function Form() {
               {/* Add intro section with padding */}
               <div className="space-y-12 mb-16">
                 <div className="prose max-w-none">
-                  <h1 className="text-3xl font-bold text-gray-900 mb-6">Commercial Property Insurance Application</h1>
-
                   <div className="bg-blue-50 p-6 rounded-lg mb-8">
                     <h2 className="text-xl font-semibold text-blue-900 mb-4">Important Information</h2>
                     <p className="text-blue-800 mb-4">
